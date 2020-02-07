@@ -1,0 +1,64 @@
+Version 1.05 - released August 24, 2015
+	wmsun uses now the new library libdockapp that includes the old
+	  wmgeneral library.
+	Expand README.
+	Fix typos in manpage.
+
+Version 1.04 - released June 14, 2015
+	Update to latest version of wmgeneral library.
+	Move source files to top directory.
+	Update Makefile. In particular,
+	- Remove INCDIR, DESTDIR, and LIBDIR definitions.
+	- Add PREFIX, BINDIR, MANDIR, and INSTALL definitions.
+	- Add -lm to LIBS.
+	- Drop COPTS, uname, and INCDIR and add CPPFLAGS and CFLAGS when
+	  compiling.
+	- Drop COPTS, SYSTEM, INCDIR, and LIBDIR and add LDFLAGS when linking.
+	- Use INSTALL when installing, create installation directories, use new
+	  BINDIR and MANDIR directories.
+	Fix implicit definition warnings. Add declaration for SunRise() in
+	  wmSun.c and move Interp() earlier in SunRise.c.
+	Remove unused variables.
+	Add return types to functions.
+	Fix "unused parameter" compiler warnings.
+	Fix "overflow in implicit constant conversion" compiler warning.
+	Remove trailing whitespace.
+	Add support for wmgeneral -geometry command line option. Also take the
+	  opportunity to fit -td option's help text on one line.
+	Remove unused UTTohhmm function.
+	Reduce scope of variables.
+	Add -12 command line option to use 12-hour clock.
+	Use threadsafe functions.
+	Rename executable from wmSun to wmsun.
+	Add ChangeLog; changes split from wmsun.c.
+	Update contact information.
+	Smart display refresh for fewer wake-ups and better responsiveness
+	  Patch by Peter Colberg <peterc@gmx.net> for Debian bug #446681 [1].
+	Fix need to restart for Daylight Savings change. Based on patch by
+	  Martin Stigge <martin@stigge.org> to fix Debian bug #414489 [2]
+	Escape hyphens in manpage. Based on the patch for Debian by Denis
+	  Briand <denis@narcan.fr> [3].
+	Update includes using include-what-you-use.
+
+	[1] https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=446681
+	[2] https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=414489
+	[3] http://sources.debian.net/src/wmsun/1.03%2B1-2/debian/patches/
+	      02_fix_hyphen-used-as-minus-sign.diff/
+
+Version 1.03 - released February 4, 1999.
+	cosmetic for AfterStep users. removed spurious black line at RHS edge an
+	mask.
+
+Version 1.02 - released January 12, 1999.
+	Added support for User-specified date and Time difference so that
+	you can have the display be correct in local time even for remote
+        lat/lons. (I am in Hawaii right now. I dont want to reset the time on
+        my laptop, so with these new options I can still get the correct
+        local times of rise/set. Sunset is awesome here in Kona!!! And the calcs
+        seem to be quite good -- it's a good test here because the Sun sets over
+        the Pacific (no mountains are in the way)).
+
+Version 1.01 - released January 6, 1999.
+        Fixed stupid bug in Date change montior.
+
+Version 1.0 - released January 5, 1999.

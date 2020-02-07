@@ -1,0 +1,32 @@
+ ___       __   _____ ______   ________  ___  ___  ________
+|\  \     |\  \|\   _ \  _   \|\   ____\|\  \|\  \|\   ___  \
+\ \  \    \ \  \ \  \\\__\ \  \ \  \___|\ \  \\\  \ \  \\ \  \
+ \ \  \  __\ \  \ \  \\|__| \  \ \_____  \ \  \\\  \ \  \\ \  \
+  \ \  \|\__\_\  \ \  \    \ \  \|____|\  \ \  \\\  \ \  \\ \  \
+   \ \____________\ \__\    \ \__\____\_\  \ \_______\ \__\\ \__\
+    \|____________|\|__|     \|__|\_________\|_______|\|__| \|__|
+                                 \|_________|
+================================================================================
+Dockable WindowMaker SunRise/SunSet App
+http://windowmaker.org/dockapps/?name=wmsun
+Author: Mike Henderson <mghenderson@lanl.gov>
+Maintainers: Window Maker Developers Team <wmaker-dev@lists.windowmaker.org>
+================================================================================
+
+REQUIREMENTS
+
+Make sure libdockapp (at least version 0.7.0) is installed. It
+may be obtained at
+http://windowmaker.org/dockapps/?name=libdockapp
+
+INSTALLATION
+
+make
+(as root) make install
+
+USAGE
+
+Determine the latitude and longitude of the desired location.
+
+For Kona, Hawaii:
+wmsun -lat 19.58 -lon 155.92
