@@ -1,0 +1,13 @@
+Index: wmnet-1.06/wmnet.c
+===================================================================
+--- wmnet-1.06.orig/wmnet.c
++++ wmnet-1.06/wmnet.c
+@@ -455,7 +455,7 @@ void setupX(void) {
+ 	gcv.font = XLoadFont(dpy, "5x8");
+ 	graphics_context = XCreateGC(dpy, root_window, (GCFont|GCGraphicsExposures|GCForeground|GCBackground), &gcv);
+ 	black_pixel = BlackPixel(dpy, screen);
+-	white_pixel = WhitePixel(dpy, screen);
++	white_pixel = BlackPixel(dpy, screen);
+ 
+ 	hints.window_group = main_window;
+ 	hints.initial_state = specified_state;

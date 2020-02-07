@@ -1,0 +1,78 @@
+Author: Sandro Tosi <morph@debian.org>
+Description: Escape hyphens in manual page
+--- a/wmnet.man
++++ b/wmnet.man
+@@ -28,7 +28,7 @@
+ the data it gets.  It has small blinking lights for the rx and tx of IP
+ packets, a digital speedometer of your networks current
+ speed and a bar graph like xload plotting your throughput. It
+-has a tx speed graph from bottom-up and rx speed graph from the top-down.
++has a tx speed graph from bottom\-up and rx speed graph from the top\-down.
+ The speedometer keeps track of the current speed per second and shows
+ it in a color corresponding to which of rx or tx that has the highest
+ speed at the moment.  Also, the graph is drawn in a way that the highest
+@@ -59,10 +59,10 @@
+ .B \-x,--maxrate=\fIBYTES
+ maximum transfer rate for graph scale. Defaults to 6000, which should
+ be in the right area for modem connections.  The key is to experiment
+-with this setting and the --logscale option to get the kind of graph
++with this setting and the \-\-logscale option to get the kind of graph
+ that fits your connection type.  A general rule of thumb is to set this
+ to 4 to 5 times greater than your maximum throughput.  The author finds
+-using --logscale and --maxrate=10000000 to work nicely for the entire range
++using \-\-logscale and \-\-maxrate=10000000 to work nicely for the entire range
+ of his dorms ethernet based connection to the internet.
+ 
+ .TP
+@@ -107,7 +107,7 @@
+ .TP
+ .B -D,--driver=\fIDRIVER
+ use \fIDRIVER \fP to get the stats we monitor.  Compiled in drivers can be listed
+-with the -h switch.  
++with the \-h switch.
+ .TP
+ .B -W,--device=\fIDEVICE
+ watch statistics for \fIDEVICE \fP.  This option is only used for certain
+@@ -120,28 +120,28 @@
+ network.  Exactly what drivers are available is determined at compile time.  The
+ driver wmnet ultimately uses at runtime is dependent on your system.  There
+ are 4 drivers specific to Linux and 1 to *BSD.  The driver used can be overridden
+-by the --driver option.  The available drivers are \fIpppstats, devstats, ipfwadm,
++by the \-\-driver option.  The available drivers are \fIpppstats, devstats, ipfwadm,
+ ipchains\fP and \fIkmem\fP.
+ .TP
+ .B pppstats
+ this driver works on Linux 2.0 or Linux 2.1 for ONLY ppp type devices.  
+-Specify the \fI--device\fP option for the interface to monitor.  By default it
++Specify the \fI\-\-device\fP option for the interface to monitor.  By default it
+ uses interface ppp0.  Please note, that if the ppp device is not available or active, wmnet
+ will continue to try in the hopes that it is only temporarily offline.
+ .TP
+ .B devstats
+-use this driver on Linux 2.1 kernels for any interface.  Pass the \fI--device\fP option
++use this driver on Linux 2.1 kernels for any interface.  Pass the \fI\-\-device\fP option
+ for the device you want monitored, otherwise, the default is eth0.  This will be available
+ for ONLY Linux 2.1 kernels and will always be there on those kernels.
+ .TP
+ .B ipfwadm
+ use this driver on Linux 2.0 kernels compiled with IP accounting.  It won't work on Linux 2.1.
+-You'll also need to specify the \fI--txrule\fP and \fI--rxrule\fP options.  By default, wmnet uses
++You'll also need to specify the \fI\-\-txrule\fP and \fI\-\-rxrule\fP options.  By default, wmnet uses
+ the first two rules it finds.
+ .TP
+ .B ipchains
+ this driver will only work in Linux 2.1 kernels with IP chains compiled in.  You'll want to also
+-specify the \fI--txrule\fP and \fI--rxrule\fP options and specify the chain names.  By default it
++specify the \fI\-\-txrule\fP and \fI\-\-rxrule\fP options and specify the chain names.  By default it
+ uses the chains "acctin" and "acctout" 
+ There must be at least one rule on the named ipchain, if there is more
+ than one rule in the specified chain, it uses the first.  The chain
+@@ -150,7 +150,7 @@
+ .TP
+ .B kmem
+ this driver is available on FreeBSD and OpenBSD systems and must be passed
+-a device through the \fI--device\fP option.  By default, it uses ec0 but
++a device through the \fI\-\-device\fP option.  By default, it uses ec0 but
+ will accept any valid device name.
+ .SH FILES
+ .TP

@@ -1,0 +1,212 @@
+wmnet (1.06-1) unstable; urgency=low
+
+  * New upstream version
+  * Switch to dpkg-source 3.0 (quilt) format
+  * Bump Standards-Version to 3.9.3
+  * Fixed lintian warnings:
+    - debian-rules-missing-recommended-target build-arch
+    - debian-rules-missing-recommended-target build-indep
+    - debhelper-but-no-misc-depends
+  * Fix when values in /proc/net/dev are getting big (Closes: #639967)
+  * Fixed spelling errors:
+    - wmnet.c, debian/copyright: "GNU General Public License"
+    - wmnet.man: "overridden"
+  * Update Sandro Tosi's email in debian/patches/*
+  * Add new upstream maintainer to debian/copyright
+
+ -- Martin Lazar <mlazar@email.cz>  Sat, 03 Mar 2012 21:20:19 +0100
+
+wmnet (1.05-17) unstable; urgency=low
+
+  * Adopting package (Closes: #490737)
+  * debian/control
+    - set myself as maintainer
+    - removed rman from build dependencies (Closes: #492132)
+  * debian/copyright
+    - set myself as new maintainer
+  * debian/patches/01_restore_pristine_code.dpatch
+    - removed changes to Makefile (it is automaticaly generated from Imakefile)
+  * debian/patches/10_fix_manpage_minus.dpatch
+    - added description (fix lintian dpatch-missing-description warning)
+
+ -- Martin Lazar <mlazar@email.cz>  Sat, 03 Mar 2012 20:22:41 +0100
+
+wmnet (1.05-16) unstable; urgency=low
+
+  * debian/control
+    - replaced xutils build-dep with xutils-dev; thanks to Daniel Schepler for
+      the report; Closes: #485275
+    - bump Standards-Version to 3.8.0
+      + debian/README.source added
+
+ -- Sandro Tosi <matrixhasu@gmail.com>  Fri, 11 Jul 2008 23:24:19 +0200
+
+wmnet (1.05-15) unstable; urgency=low
+
+  * debian/control
+    - added some build-dependency (Closes: #450534)
+    - bump Standards-Version to 3.7.3
+    - added dpatch dependency
+    - removed x11proto-xext-dev build-dep since libxext-dev depends on it
+  * debian/menu
+    - updated menu section (for menu migration)
+  * debian/rules
+    - dpatch integration
+  * debian/patches/01_restore_pristine_code.dpatch
+    - added to remove upstream code direct modification
+  * debian/patches/10_fix_manpage_minus.dpatch
+    - fix lintian warning about manpage and minus characters
+  * debian/patches/01_restore_pristine_code.dpatch
+    - removed changes to manpage (see bug #106382)
+  * debian/patches/10_fix_manpage_minus.dpatch
+    - updated due to some changes have been removed (see bug #106382)
+  * debian/patches/20_bts-106382_fix_arrows_direction.dpatch
+    - added to fix arrows directions (Closes: #106382) Thanks to Matthew
+      Ashton for the patch
+
+ -- Sandro Tosi <matrixhasu@gmail.com>  Sat, 05 Jan 2008 11:19:19 +0100
+
+wmnet (1.05-14) unstable; urgency=low
+
+  * Adopting package (Closes: #406775)
+  * debian/control
+    - set myself as maintainer
+    - bump Standards-Version to 3.7.2
+    - build depends on debhelper >=5
+    - little reformat of short and long description
+    - add Homepage field on source stanza and linking to right url
+    - removed dependency against rman
+  * debian/compat
+    - bump to 5
+  * debian/copyright
+    - separation of copyright and licence sections
+    - fixed upstream website
+    - set myself as new maintainer
+    - add reference to GPL licence file on debian box
+    - note on new upstream maintainer
+  * debian/watch
+    - bump to version 3
+    - fixed of URL to check
+  * debian/menu
+    - moved entry to Applications/Network
+    - fixed binary location
+  * debian/rules
+    - add dh_installman call
+    - add install target (and fix targets dependency)
+    - removed unneded "rm" command in build-arch target
+    - removed make invokation for man install
+
+ -- Sandro Tosi <matrixhasu@gmail.com>  Mon, 01 Oct 2007 19:42:27 +0200
+
+wmnet (1.05-13) unstable; urgency=low
+
+  * Remove references to /usr/X11R6/* from debian/dirs.
+
+ -- Philipp Frauenfelder <pfrauenf@debian.org>  Thu, 20 Apr 2006 21:47:31 +0200
+
+wmnet (1.05-12) unstable; urgency=low
+
+  * Rebuild against new X11. Closes: #362950
+
+ -- Philipp Frauenfelder <pfrauenf@debian.org>  Mon, 17 Apr 2006 15:50:56 +0200
+
+wmnet (1.05-11) unstable; urgency=low
+
+  * Add command line option to choose X display to use. Thanks to
+    Armin Kretschmer <armin.kretschmer@vr-web.de> for the patch.
+  * Bumped standards version.
+
+ -- Philipp Frauenfelder <pfrauenf@debian.org>  Tue,  1 Nov 2005 20:50:19 +0100
+
+wmnet (1.05-10) unstable; urgency=low
+
+  * Move man page more gracefully. dh_installman is not needed.
+
+ -- Philipp Frauenfelder <pfrauenf@debian.org>  Wed,  4 Aug 2004 11:17:33 +0200
+
+wmnet (1.05-9) unstable; urgency=low
+
+  * Added debian/watch file. I am not upgrading to the latest upstream
+    release as this does only improve support for OpenBSD and is said
+    not work less reliably on Linux.
+  * Removed ipac from suggestions. Closes: #254216
+  * Removed references to IP accounting from package description as it
+    also works without.
+  * Changed xlibs-dev to libx11-dev in build dependencies.
+    Added rman to build dependencies to build man page.
+  * Debhelper compat 4 mode.
+  * More lintian clean (only imake induced warnings remain).
+
+ -- Philipp Frauenfelder <pfrauenf@debian.org>  Wed,  4 Aug 2004 08:46:37 +0200
+
+wmnet (1.05-8) unstable; urgency=low
+
+  * Fix drawing problems with partially covered window. Thanks to
+    Trilobit for the patch. Closes: #221770
+  * Bumped standards version to 3.6.1
+
+ -- Philipp Frauenfelder <pfrauenf@debian.org>  Thu, 20 Nov 2003 07:50:39 +0100
+
+wmnet (1.05-7) unstable; urgency=low
+
+  * Corrected man page: graph documentation had swapped tx/rx description.
+    Closes: #105803
+
+ -- Philipp Frauenfelder <pfrauenf@debian.org>  Fri, 20 Jul 2001 06:25:02 +0000
+
+wmnet (1.05-6) unstable; urgency=low
+
+  * Changes to make wmnet compile with gcc-3.0 (important for hppa and ia64.
+    Closes: #103274
+    Also in this bug report: a wish that I should get rid of xmkmf, but I do
+    not know enough about configure or xmkmf to do that on my own...
+
+ -- Philipp Frauenfelder <pfrauenf@debian.org>  Fri,  6 Jul 2001 06:41:23 +0000
+
+wmnet (1.05-5) unstable; urgency=low
+
+  * New standards version: 3.2.1, including build dependencies
+  * Updated copyright information: new upstream and new site
+
+ -- Philipp Frauenfelder <pfrauenf@debian.org>  Wed,  3 Jan 2001 15:26:57 +0100
+
+wmnet (1.05-4) unstable; urgency=low
+
+  * Recompiled with new debhelper to get FHS compliance.
+
+ -- Philipp Frauenfelder <pfrauenf@debian.org>  Wed, 29 Sep 1999 14:35:00 +0200
+
+wmnet (1.05-3) unstable; urgency=low
+
+  * Applied patch from Bart Warmerdam <bartw@xs4all.nl> fixing a
+    a problem on Alpha. Closes: #39246.
+  * Standards-Version: 3.0.1.
+
+ -- Philipp Frauenfelder <pfrauenf@debian.org>  Thu,  2 Sep 1999 23:14:27 +0200
+
+wmnet (1.05-2) unstable; urgency=low
+
+  * Recompile with glibc2.1
+  * Added patch from Nelson Minar fixing a problem with traffic > 1GB
+    (wmnet only shows received traffic, not transmitted).
+
+ -- Philipp Frauenfelder <pfrauenf@debian.org>  Wed, 28 Apr 1999 17:21:40 +0200
+
+wmnet (1.05-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Philipp Frauenfelder <pfrauenf@debian.org>  Sun, 11 Oct 1998 14:28:44 +0200
+
+wmnet (1.04-2) unstable; urgency=low
+
+  * Changed architecture to any, fixes #27459
+  * Fixed typo in debian/control and clarified the ipfwadm / ipac thing.
+
+ -- Philipp Frauenfelder <pfrauenf@debian.org>  Tue, 15 Sep 1998 21:45:04 +0200
+
+wmnet (1.04-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Philipp Frauenfelder <pfrauenf@debian.org>  Sat,  5 Sep 1998 10:30:04 +0200

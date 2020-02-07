@@ -1,0 +1,333 @@
+Author: Sandro Tosi <morph@debian.org>
+Description: New patch generated from wmnet 1.05-15 diff.gz
+--- a/wmnet.c
++++ b/wmnet.c
+@@ -100,9 +100,9 @@
+ 	char *txcolorString = NULL, *rxcolorString = NULL, *labelfgcolorString = NULL, *labelbgcolorString = NULL;
+ 	char *parser = NULL;
+ #ifdef linux
+-	const struct option long_options[19] = {
++	const struct option long_options[20] = {
+ #else
+-	const struct option long_options[17] = {
++	const struct option long_options[18] = {
+ #endif
+ 		{"device", required_argument, NULL, 'W'},
+ 		{"label", required_argument, NULL, 'L'},
+@@ -124,6 +124,7 @@
+ 		{"unpromisc", required_argument, NULL, 'u'},
+ 		{"driver", required_argument, NULL, 'D'},
+ 		{"version", no_argument, NULL, 'v'},
++		{"display", required_argument, NULL, 'X'},
+ 		{0, 0, 0, 0}
+ 	};
+ 
+@@ -131,9 +132,9 @@
+ 
+ 	/* Get options */
+ #ifdef linux
+-	while((c = getopt_long(argc, argv, "W:F:B:L:vp:u:wnle:R:T:r:t:D:d:x:h", long_options, NULL)) != EOF) {
++	while((c = getopt_long(argc, argv, "W:F:B:L:X:vp:u:wnle:R:T:r:t:D:d:x:h", long_options, NULL)) != EOF) {
+ #else
+-	while((c = getopt_long(argc, argv, "W:F:B:L:vp:u:wnle:r:t:D:d:x:h", long_options, NULL)) != EOF) {
++	while((c = getopt_long(argc, argv, "W:F:B:L:X:vp:u:wnle:r:t:D:d:x:h", long_options, NULL)) != EOF) {
+ #endif
+ 		switch(c) {
+ 			case 'v':
+@@ -142,6 +143,9 @@
+ 				       "This program is released under the terms of the GNU Public License.\n");
+ 				exit(14);
+ 				break;
++			case 'X':
++				dpy_name = strdup(optarg);
++				break;
+ 			case 'W':
+ 				device = strdup(optarg);
+ 				break;
+@@ -280,17 +284,18 @@
+ 				       "-----------------------------------------------------\n"
+ 				       "  -h, --help               this help\n"
+                                        "  -v, --version            display version information\n"
++                                       "  -X, --display            X server to contact\n"
+                                        "  -L, --label=LABEL        display LABEL on bottom of window\n"
+                                        "  -F, --labelfg=COLOR      foreground color for the label\n"
+                                        "  -B, --labelbg=COLOR      background color for the label\n"
+-                                       "  -e, --execute=COMMAND    run COMMAND on click\n"
++                                       "  -e, --execute=COMMAND    run COMMAND on click\n");
+ #ifdef linux
+-				       "  -T, --txrule=RULE        accounting rule number (ipfwadm) or\n"
++				printf("  -T, --txrule=RULE        accounting rule number (ipfwadm) or\n"
+ 				       "                           IP chain name (ipchains) to monitor for tx\n"
+ 				       "  -R, --rxrule=RULE        accounting rule number (ipfwadm) or\n"
+-				       "                           IP chain name (ipchains) to monitor for rx\n"
++				       "                           IP chain name (ipchains) to monitor for rx\n");
+ #endif
+-				       "  -W, --device=DEVICE      monitor DEVICE for stats (devstats,kmem,pppstats)\n"
++				printf("  -W, --device=DEVICE      monitor DEVICE for stats (devstats,kmem,pppstats)\n"
+                                        "  -w, --withdrawn          start up in withdrawn state\n"
+                                        "  -n, --normalstate        start up in normal, shaped state\n"
+ 				       "  -t, --txcolor=COLOR      color for tx\n"
+@@ -328,7 +333,7 @@
+ 	}
+ 
+ 	/* Open X Display */
+-	if ((dpy = XOpenDisplay(NULL)) == NULL) {
++	if ((dpy = XOpenDisplay(dpy_name)) == NULL) {
+ 		fprintf(stderr,"wmnet: doh...can't connect to X server, giving up\n");
+ 		exit(1);
+ 	}
+@@ -343,8 +348,10 @@
+ 	sigemptyset(&signal_action.sa_mask);
+ 	signal_action.sa_flags = (SA_NOCLDSTOP|SA_RESTART);
+ #ifdef linux
++#if !defined(__alpha) && !defined(__hppa__) && !defined(__ia64__) // Alpha doen't have this structure member
+ 	signal_action.sa_restorer = NULL;
+ #endif
++#endif
+ 	if ((sigaction(SIGCHLD, &signal_action, NULL) == -1) ||
+ 	    (sigaction(SIGINT, &signal_action, NULL) == -1) ||
+ 	    (sigaction(SIGTERM, &signal_action, NULL) == -1)) {
+@@ -426,6 +433,8 @@
+ 
+ 	root_window = DefaultRootWindow(dpy);
+ 	createWin(&main_window);	
++	/*Trilobit anlegen eines buffers als pixmap*/
++	buffer_pixmap=XCreatePixmap(dpy, root_window, 64, 64, DefaultDepth(dpy, screen));
+ 
+ 	color.red = color.green = color.blue = 12000;
+ 	XAllocColor(dpy, DefaultColormap(dpy, screen), &color);
+@@ -474,9 +483,12 @@
+ 	XShapeCombineRectangles(dpy, *visible_window, ShapeBounding, 4, 4, &bound, 1, ShapeBounding, 0); 
+ 	XSelectInput(dpy, *visible_window, (ExposureMask|ButtonPressMask));
+ 	XMapSubwindows(dpy, *visible_window);
+-
++	/*Trilobit initialisieren des Buffers:*/
++	XSetForeground(dpy, graphics_context, darkgrey_pixel);
++	XFillRectangle(dpy, buffer_pixmap, graphics_context, GRAPH_X, GRAPH_Y, GRAPH_WIDTH, GRAPH_HEIGHT);
+ }
+ 
++/*************************** anfang zu verändern ************/
+ /* Utility function to create a window for setupX() */
+ void createWin(Window *win) {
+ 	XClassHint classHint;
+@@ -522,8 +534,10 @@
+ 	XSetBackground(dpy, graphics_context, black_pixel);
+ 	XCopyPlane(dpy, arrow, *visible_window, graphics_context, 7, 0, 7, 9, 53, 5, 1);
+ 	XCopyPlane(dpy, arrow, *visible_window, graphics_context, 0, 0, 7, 9, 46, 5, 1);
++	/*Trilobit ganz billig, einfach buffer zurückschreiben:*/
++	XCopyArea(dpy, buffer_pixmap, *visible_window, graphics_context, GRAPH_X, GRAPH_Y, GRAPH_WIDTH, GRAPH_HEIGHT, GRAPH_X, GRAPH_Y);
+ }
+-	
++/******************* ende zu verändern *********************/
+ 	
+ /* Main loop that is called every delaytime.  This calls stat_gather() and updateSpeedometer() when needed 
+  * and takes care of the displaying and scrolling the graph */
+@@ -563,17 +577,17 @@
+ 		yy =  GRAPH_Y_UPPER + (GRAPH_HEIGHT * percent_tx) ; 
+ 		yy = yy > GRAPH_Y_BOTTOM ? GRAPH_Y_BOTTOM : yy; 
+ 
+-
++/************************ anfang zu verändern ***************/
+ 		/* only update the speedometer every 7th displayDelay */
+ 		if (t == 7) updateSpeedometer(rate_rx, rate_tx);
+ 		
+ 		/* blank var is just for stopping executing the X* funcs when the disp is all black */
+ 		if ((y == GRAPH_Y_BOTTOM && yy == GRAPH_Y_UPPER) && (diffbytes_in + diffbytes_out) == 0) blank++; else blank = 0;
+ 		if (blank < (GRAPH_WIDTH + 1) ) {
+-			XCopyArea(dpy, *visible_window, *visible_window, graphics_context, GRAPH_X + 1,
++			XCopyArea(dpy, buffer_pixmap, buffer_pixmap, graphics_context, GRAPH_X + 1,
+ 			   GRAPH_Y, GRAPH_WIDTH - 1, GRAPH_HEIGHT, GRAPH_X, GRAPH_Y);
+ 			XSetForeground(dpy, graphics_context, darkgrey_pixel);
+-			XDrawLine(dpy, *visible_window, graphics_context, GRAPH_X_RIGHT, y, GRAPH_X_RIGHT, yy);
++			XDrawLine(dpy, buffer_pixmap, graphics_context, GRAPH_X_RIGHT, y, GRAPH_X_RIGHT, yy);
+ 			if (( (yy == GRAPH_Y_UPPER && diffbytes_out > 0 && rate_rx > rate_tx) || (rate_rx >= rate_tx && yy != GRAPH_Y_UPPER)) ) {
+ 				drawColoredLine(GRAPH_Y_UPPER, yy, tx_pixel);				
+ 			}
+@@ -583,14 +597,17 @@
+ 			if (( (yy == GRAPH_Y_UPPER && diffbytes_out > 0) || (rate_rx < rate_tx && yy != GRAPH_Y_UPPER)) ) {
+ 				drawColoredLine(GRAPH_Y_UPPER, yy, tx_pixel);				
+ 			}
+-		}
+-
++			/* Trilobit nachdem buffer zurechtgebastelt, den kram ins fenster kopieren: */
++			XCopyArea(dpy, buffer_pixmap, *visible_window, graphics_context, GRAPH_X,
++			   GRAPH_Y, GRAPH_WIDTH, GRAPH_HEIGHT, GRAPH_X, GRAPH_Y);
++		}/*END if blank*/
++/************************* ende zu verändern *******************/
+ 
+ 		diffbytes_in = diffbytes_out = 0;
+ 		timelast = timenow;
+ 	}	
+ 
+-	if (!stat_gather()) {  /* Anything change? */
++	if (!stat_gather()) {  /* Anything change? erneuert nur die Pfeilanzeigen */
+ 		current_rx = rx;
+ 		current_tx = tx;
+ 		XSetBackground(dpy, graphics_context, black_pixel);
+@@ -675,7 +692,7 @@
+ 
+ }
+ 
+-
++/*************************** anfang zu verändern ***************/
+ /* called from within tock to draw the shaded lines making up our bar-graph */
+ void drawColoredLine(int y1, int y2, unsigned long *shadecolor) {
+ 	int subline[4], i;
+@@ -684,10 +701,13 @@
+ 	for(i = 0; i < 3; i++) {
+ 		if (y1 > y2) subline[i+1] = y1 - (((y1 - y2) * linebreaks[i]) / 100);
+ 		else subline[i+1] = y1 + (((y2 - y1) * linebreaks[i]) / 100);
+-		XSetForeground(dpy, graphics_context, shadecolor[i]); 
+-		XDrawLine(dpy, *visible_window, graphics_context, GRAPH_X_RIGHT, subline[i], GRAPH_X_RIGHT, subline[i+1]);
++		XSetForeground(dpy, graphics_context, shadecolor[i]);
++		/*Trilobit alles erstmal in meinen buffer schreiben: */
++		XDrawLine(dpy, buffer_pixmap, graphics_context, GRAPH_X_RIGHT, subline[i], GRAPH_X_RIGHT, subline[i+1]);
++		//XDrawLine(dpy, *visible_window, graphics_context, GRAPH_X_RIGHT, subline[i], GRAPH_X_RIGHT, subline[i+1]);
+ 	}
+ }
++/************************* ende zu verändern *******************/
+ 
+ 
+ /* Returns in returnarray a 3 value array containing 3 shades (low, normal, and high) of XColor shade.
+--- a/wmnet.h
++++ b/wmnet.h
+@@ -63,9 +63,11 @@
+ 
+ /* X Stuff */
+ Display *dpy;
++char *dpy_name = NULL;
+ Window root_window, main_window, icon_window, *visible_window;
+ Font thefont;
+ Pixmap arrow;
++Pixmap buffer_pixmap; /*Trilobit pixmap als zwischenbuffer*/
+ Atom delete_atom;
+ int screen, specified_state = -1;
+ GC graphics_context;
+--- a/Imakefile
++++ b/Imakefile
+@@ -1,10 +1,10 @@
+ DEPLIBS = $(DEPXLIB) 
+-CC = gcc -Wall
++CC = gcc -Wall -O2
+ 
+ #ifdef LinuxArchitecture
+ STD_DEFINES = -Dlinux
+ DEFINES = -Dlinux_libc5
+-#if LinuxCLibMajorVersion > 5
++#if 1
+ DEFINES = -Dlinux_libc6
+ #endif
+ LOCAL_LIBRARIES = $(XLIB) -lm 
+--- a/wmnet.man
++++ b/wmnet.man
+@@ -113,6 +113,8 @@
+ watch statistics for \fIDEVICE \fP.  This option is only used for certain
+ stat drivers, namely: kmem, devstats, and pppstats.  The ipchains and ipfwadm
+ stat drivers do not use this parameter. 
++.B -X,--display=\fDISPLAY
++X display to use.
+ .SH STAT DRIVERS
+ wmnet uses different stat drivers to get the stats it needs to monitor your
+ network.  Exactly what drivers are available is determined at compile time.  The
+--- a/drivers.c
++++ b/drivers.c
+@@ -9,6 +9,7 @@
+  *  great, but please send me the diff.  
+  */
+ 
++#include<ctype.h>
+ #include<stdlib.h>
+ #include<stdio.h>
+ #include<string.h>
+@@ -318,6 +319,11 @@
+ 
+ #ifdef USE_2_1_DEV
+ 
++/* nelson@media.mit.edu - simple macro to skip to the next field in a character string.
++ * First skip all the non-space characters, then skip all the space characters.
++ */
++#define NEXTFIELD(p) while (!isspace(*(p))) (p)++; while (isspace(*(p))) (p)++;
++
+ int updateStats_dev(void) {
+ 	FILE *dev;
+         char *ptr;
+@@ -332,25 +338,42 @@
+ 				"Perhaps we are not running Linux?\n");
+ 		exit(4);
+ 	}
+-        /* the first two lines we can skip */
++        /* the first two lines we can skip - just text headers */
+         fgets(buffer, 256, dev);
+         fgets(buffer, 256, dev);
+ 
+-	/* IP Chain Rules for Linux kernel 2_1.x */
++	/* devstats for Linux kernel 2_1.x */
+ 	while(flag != (ACCOUNT_IN_FOUND|ACCOUNT_OUT_FOUND) && fgets(buffer, 256, dev)) {
++                /* scan to the first : to find the device name */
+ 		ptr = buffer;
+ 		while(*ptr == ' ') ptr++;
+ 		name = ptr;
+                 while(*ptr != ':') ptr++;
+-                *ptr = '\0';
++                *ptr = '\0';                      /* ptr used below! */
+ 
+ 		if (!strcmp(name, device)) {
++                        /* found the device we are monitoring, parse data. */
++                        /* nelson@media.mit.edu - hacked to deal with variable width data */
++
++                        int i;
++                        char *bytes_in_str, *packets_in_str, *bytes_out_str, *packets_out_str;
+ 				
+ 			flag = (ACCOUNT_IN_FOUND|ACCOUNT_OUT_FOUND);
+ 
+-			totalpackets_in = strtoul(&buffer[15], NULL, 10);	
++                        /* Bytes in is the first field after the :
++                         * Note, there may be no whitespace after :
++                         */
++                        bytes_in_str = ptr + 1;
++                        while (isspace(*bytes_in_str))
++                            bytes_in_str++;
++
++                        /* Packets in is the next field after bytes in */
++                        packets_in_str = bytes_in_str;
++                        NEXTFIELD(packets_in_str);
++
++			totalpackets_in = strtoul(packets_in_str, NULL, 10);
+ 			if (totalpackets_in != lastpackets_in) {
+-				totalbytes_in = strtoul(&buffer[7], NULL, 10);
++				totalbytes_in = strtoul(bytes_in_str, NULL, 10);
+ 				diffpackets_in += totalpackets_in - lastpackets_in;
+ 				diffbytes_in += totalbytes_in - lastbytes_in;
+ 				lastpackets_in = totalpackets_in;
+@@ -358,16 +381,29 @@
+ 				rx = True; 
+ 			}
+ 			
++                        /* Bytes out is the seventh field after packets in */
++                        bytes_out_str = packets_in_str;
++                        for (i = 0; i < 7; i++) {
++                            NEXTFIELD(bytes_out_str);
++                        }
++
++                        /* Packets out is the next field after bytes out */
++                        packets_out_str = bytes_out_str;
++                        NEXTFIELD(packets_out_str);
+ 			
+-			totalpackets_out = strtoul(&buffer[74], NULL, 10);	
++			totalpackets_out = strtoul(packets_out_str, NULL, 10);
+ 			if (totalpackets_out != lastpackets_out) {
+-				totalbytes_out = strtoul(&buffer[66], NULL, 10);
++				totalbytes_out = strtoul(bytes_out_str, NULL, 10);
+ 				diffpackets_out += totalpackets_out - lastpackets_out;
+ 				diffbytes_out += totalbytes_out - lastbytes_out;
+ 				lastpackets_out = totalpackets_out;
+ 				lastbytes_out = totalbytes_out;
+ 				tx = True; 
+ 			}
++#ifdef NELSONDEBUG
++                        fprintf(stderr, "%lu %lu %lu %lu\n", totalbytes_in, totalpackets_in,
++                                totalbytes_out, totalpackets_out);
++#endif
+ 		}
+ 	}
+ 	

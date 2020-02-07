@@ -1,0 +1,26 @@
+Author: <mlazar@email.cz>
+Description: fixed spelling error
+  * GNU Public License => GNU General Public License
+  * overriden => overridden
+--- a/wmnet.c
++++ b/wmnet.c
+@@ -140,7 +140,7 @@
+ 			case 'v':
+ 				printf("wmnet 1.06\n"
+ 				       "Copyright (C) 1998, 2000 Jesse B. Off, Katharine Osborne <kaos@digitalkaos.net>\n"
+-				       "This program is released under the terms of the GNU Public License.\n");
++				       "This program is released under the terms of the GNU General Public License.\n");
+ 				exit(14);
+ 				break;
+ 			case 'X':
+--- a/wmnet.man
++++ b/wmnet.man
+@@ -88,7 +88,7 @@
+ sets the initial state of wmnet.  WMnet tries to automatically determine which
+ state to start up in by starting up in withdrawn state if a WindowMaker
+ defined atom is present, and in normalstate otherwise.  This behavior is
+-overriden by specifying one of these options.
++overridden by specifying one of these options.
+ .TP
+ .B -e,--execute=\fICOMMAND
+ executes \fICOMMAND \fPon a single click from button 1 (left mouse button).

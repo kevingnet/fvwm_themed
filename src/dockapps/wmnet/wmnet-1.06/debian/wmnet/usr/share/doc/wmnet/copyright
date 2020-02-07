@@ -1,0 +1,27 @@
+This package was debianized by Philipp Frauenfelder <pfrauenf@debian.org> on
+Wed, 29 Jul 1998 21:53:48 +0200.
+
+It is now maintained by Martin Lazar <mlazar@email.cz>
+
+It was downloaded from http://isufug.ee.iastate.edu/~joff/wmnet.html,
+then http://www.katharineosborne.com/wmnet/,
+now at http://dockapps.windowmaker.org/file.php/id/77
+
+wmnet was created by Jesse B. Off <joff@iastate.edu> and is upstream
+maintained by Katharine Osborne <kaos@dig‐italkaos.net>.
+
+Copyright:
+
+    1998 Jesse B. Off  <joff@iastate.edu>
+    2000 Katharine Osborne <kaos@digitalkaos.net>
+
+Licence:
+
+    This software is released under the GNU General Public License agreement.
+    No warranties, whatever.... you know the usuals.... this is free
+    software.  if you use it, great... if you wanna make a change to it,
+    great, but please send me the diff.  
+
+On a Debian system the complete text of the GNU General Public License
+can be found in the file `/usr/share/common-licenses/GPL'
+

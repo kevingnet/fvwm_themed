@@ -1,0 +1,30 @@
+Author: Sandro Tosi <morph@debian.org>
+Description: Based on the patch of Matthew Ashton, this fix arrows direction, as in upstream willing
+--- a/wmnet.c
++++ b/wmnet.c
+@@ -613,21 +613,21 @@
+ 		XSetBackground(dpy, graphics_context, black_pixel);
+ 		if(current_tx == True) {
+ 			XSetForeground(dpy, graphics_context, tx_pixel[HIGH_INTENSITY]);
+-			XCopyPlane(dpy, arrow, *visible_window, graphics_context, 7, 0, 7, 9, 53, 5, 1);
++			XCopyPlane(dpy, arrow, *visible_window, graphics_context, 0, 0, 7, 9, 46, 5, 1);
+ 			/* XFillRectangle(dpy, *visible_window, graphics_context, 55, 5, 4, 4);  */
+ 		}
+ 		else {
+ 			XSetForeground(dpy, graphics_context, grey_pixel);
+-			XCopyPlane(dpy, arrow, *visible_window, graphics_context, 7, 0, 7, 9, 53, 5, 1);
++			XCopyPlane(dpy, arrow, *visible_window, graphics_context, 0, 0, 7, 9, 46, 5, 1);
+ 		}
+ 		if(current_rx == True) {
+ 			XSetForeground(dpy, graphics_context, rx_pixel[HIGH_INTENSITY]);
+-			XCopyPlane(dpy, arrow, *visible_window, graphics_context, 0, 0, 7, 9, 46, 5, 1);
++			XCopyPlane(dpy, arrow, *visible_window, graphics_context, 7, 0, 7, 9, 53, 5, 1);
+ 			/* XFillRectangle(dpy, *visible_window, graphics_context, 55, 12, 4, 4);  */
+ 		}
+ 		else {
+ 			XSetForeground(dpy, graphics_context, grey_pixel);
+-			XCopyPlane(dpy, arrow, *visible_window, graphics_context, 0, 0, 7, 9, 46, 5, 1);
++			XCopyPlane(dpy, arrow, *visible_window, graphics_context, 7, 0, 7, 9, 53, 5, 1);
+ 		}
+ 	} 
+ 			

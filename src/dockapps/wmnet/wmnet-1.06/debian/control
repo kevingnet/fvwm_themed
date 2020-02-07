@@ -1,0 +1,17 @@
+Source: wmnet
+Section: x11
+Priority: optional
+Maintainer: Martin Lazar <mlazar@email.cz>
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>= 5), libx11-dev, libxext-dev, xutils-dev
+Homepage: http://www.katharineosborne.com/wmnet/
+
+Package: wmnet
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, netbase
+Suggests: wmaker
+Description: network monitor for WindowMaker
+ This little  program polls network  statistics and does a  few things
+ with the  data it  gets. The speedometer  keeps track of  the current
+ speed per second and shows it in a color corresponding to which of rx
+ or tx that has the highest speed at the moment.

@@ -1,0 +1,70 @@
+Author: Adam Lackorzynski <adam@os.inf.tu-dresden.de>
+Description: Fix when values in /proc/net/dev are getting big (see bug #639967)
+--- a/drivers.c
++++ b/drivers.c
+@@ -60,8 +60,8 @@
+ 
+ extern char buffer[256];
+ extern char *in_rule_string, *out_rule_string, *device;
+-extern unsigned long totalbytes_in, totalbytes_out, lastbytes_in, lastbytes_out;
+-extern unsigned long totalpackets_in, totalpackets_out, lastpackets_in, lastpackets_out;
++extern unsigned long long totalbytes_in, totalbytes_out, lastbytes_in, lastbytes_out;
++extern unsigned long long totalpackets_in, totalpackets_out, lastpackets_in, lastpackets_out;
+ extern unsigned int diffpackets_in, diffpackets_out, diffbytes_in, diffbytes_out;
+ extern unsigned int out_rule, in_rule;  /* number of rule in /proc/net/ip_acct to use */
+ extern Bool current_tx, current_rx, rx, tx;
+@@ -197,7 +197,7 @@
+ 				flag |= ACCOUNT_IN_FOUND;
+ 				while(buffer[offset++] != ' ');
+ 				offset += 18; 
+-				totalpackets_in = strtoul(&buffer[offset], &ptr, 10);	
++				totalpackets_in = strtoull(&buffer[offset], &ptr, 10);
+ 				if (totalpackets_in == lastpackets_in) break;
+ 				totalbytes_in = strtoul(ptr, NULL, 10);
+ 				diffpackets_in += totalpackets_in - lastpackets_in;
+@@ -211,7 +211,7 @@
+ 				flag |= ACCOUNT_OUT_FOUND;
+ 				while(buffer[offset++] != ' ');
+ 				offset += 18; 
+-				totalpackets_out = strtoul(&buffer[offset], &ptr, 10);	
++				totalpackets_out = strtoull(&buffer[offset], &ptr, 10);
+ 				if (totalpackets_out == lastpackets_out) break;
+ 				totalbytes_out = strtoul(ptr, NULL, 10);
+ 				diffpackets_out += totalpackets_out - lastpackets_out;
+@@ -371,9 +371,9 @@
+                         packets_in_str = bytes_in_str;
+                         NEXTFIELD(packets_in_str);
+ 
+-			totalpackets_in = strtoul(packets_in_str, NULL, 10);
++			totalpackets_in = strtoull(packets_in_str, NULL, 10);
+ 			if (totalpackets_in != lastpackets_in) {
+-				totalbytes_in = strtoul(bytes_in_str, NULL, 10);
++				totalbytes_in = strtoull(bytes_in_str, NULL, 10);
+ 				diffpackets_in += totalpackets_in - lastpackets_in;
+ 				diffbytes_in += totalbytes_in - lastbytes_in;
+ 				lastpackets_in = totalpackets_in;
+@@ -391,9 +391,9 @@
+                         packets_out_str = bytes_out_str;
+                         NEXTFIELD(packets_out_str);
+ 			
+-			totalpackets_out = strtoul(packets_out_str, NULL, 10);
++			totalpackets_out = strtoull(packets_out_str, NULL, 10);
+ 			if (totalpackets_out != lastpackets_out) {
+-				totalbytes_out = strtoul(bytes_out_str, NULL, 10);
++				totalbytes_out = strtoull(bytes_out_str, NULL, 10);
+ 				diffpackets_out += totalpackets_out - lastpackets_out;
+ 				diffbytes_out += totalbytes_out - lastbytes_out;
+ 				lastpackets_out = totalpackets_out;
+--- a/wmnet.h
++++ b/wmnet.h
+@@ -77,8 +77,8 @@
+ /* I know statically declared buffers are against GNU coding standards, so sue me */
+ char buffer[256], *click_command = NULL, *label = NULL;
+ struct timeval timenow, timelast;
+-unsigned long totalbytes_in, totalbytes_out, lastbytes_in, lastbytes_out;
+-unsigned long totalpackets_in, totalpackets_out, lastpackets_in, lastpackets_out;
++unsigned long long totalbytes_in, totalbytes_out, lastbytes_in, lastbytes_out;
++unsigned long long totalpackets_in, totalpackets_out, lastpackets_in, lastpackets_out;
+ unsigned int diffpackets_in, diffpackets_out, diffbytes_in, diffbytes_out;
+ unsigned int delayTime = 25000, displayDelay = 55000, maxRate = 6000;
+ unsigned int out_rule = 2, in_rule = 1, graphbox_height = 44;  /* number of rule in /proc/net/ip_acct to use */
