@@ -1,0 +1,23 @@
+tools image_* will generate menu entries:
+image_palette_dir_2_theme_list will add them to theme_database_source_palette, and
+image_algorithm_dir_2_theme_list will add them to theme_database_source_algorithm
+
+The first one needs image files that already have been processed, the number of colors
+in the palette have been reduced to 2 to 8, the algorithm will choose the first 4.
+
+The second one can be fed with as many colors and tries to figure out the ones 'we want' 
+to use for our theme
+
+Both generate a menu entry header which simply shows the image icon and 4 menu entries
+with generated color icons, with the chosen colors.
+
+The steps to add menu entries are:
+1) Process an image file using one of the tools above, or simply add an entry with the
+   colors you want in your theme, no image necessary, an icon will be created.
+2) If you add them manually add them to theme_database_source, otherwise, copy them 
+   from the files named above to theme_database_source
+3) Run theme_database_regenerate.py, this will recreate scripts/data/colors.json which
+   contains data to be used for menu generation.
+4) Run theme_menu_regenerate.py, this will recreate files ColorsMenu, ColorsMenuList and
+   ColorsThemeList. These files are read by .fvwm/config and included and are the theme
+   menu entries you'd see.

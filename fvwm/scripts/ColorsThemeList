@@ -1,0 +1,9 @@
++ "Theme Set2%menu/themes.xpm%" Popup FvwmThemesMenuSet2
++ "Theme Artistic%menu/themes.xpm%" Popup FvwmThemesMenuArtistic
++ "Theme Set%menu/themes.xpm%" Popup FvwmThemesMenuSet
++ "Theme Web%menu/themes.xpm%" Popup FvwmThemesMenuWeb
++ "Theme Patterns%menu/themes.xpm%" Popup FvwmThemesMenuPatterns
++ "Theme Tiles%menu/themes.xpm%" Popup FvwmThemesMenuTiles
++ "Theme Floral%menu/themes.xpm%" Popup FvwmThemesMenuFloral
++ "Theme Wallpapers%menu/themes.xpm%" Popup FvwmThemesMenuWallpapers
++ "" Nop
