@@ -1,0 +1,423 @@
+/* Copper- GTK+3.20 version */
+/* This file contains widget assets (images) and accompanying CSS styles */
+
+/* Checkboxes/Radios */
+checkbutton,
+radiobutton {
+	padding: 3px 6px;
+}
+
+menu check + label,
+menu .check {
+	margin: 0px 3px;
+}
+
+checkbutton check,
+radiobutton radio {
+	min-width: 16px;
+	min-height: 16px;
+	margin: 3px;
+}
+
+menu checkbutton check,
+menu check,
+menu radio,
+menu menuitem check,
+menu menuitem radio {
+	margin: 0px 3px;
+	min-width: 14px;
+	min-height: 14px;
+}
+
+checkbutton check,
+radiobutton radio,
+menu menuitem check,
+menu menuitem radio {
+	border: 2px solid;
+	border-color:  @theme_border_color;
+	border-style: inset;
+}
+
+menu menuitem check,
+menu menuitem radio {
+	border-color: @theme_light_border_color;
+}
+
+checkbutton check:checked {
+	background-color: mix (@theme_base_color, @theme_dark_color, 0.5);
+	border-color: @theme_dark_border_color;
+	-gtk-icon-source: -gtk-scaled(url("assets/check-selected.svg"));
+}
+
+menu menuitem check:checked {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-selected.svg"));
+}
+
+checkbutton check:disabled,
+menu menuitem check:disabled {
+	border-color: @theme_light_border_color;
+}
+
+checkbutton check:checked:disabled {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-selected-disabled.svg"));
+}
+
+menu menuitem check:checked:disabled {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-selected-disabled.svg"));
+}
+
+checkbutton check:hover,
+menu menuitem check:hover,
+checkbutton check:focus,
+menu menuitem check:focus {
+	background-color: mix (@theme_base_color, @theme_dark_color, 0.5);
+}
+
+checkbutton check:checked:hover,
+checkbutton check:checked:focus {
+	border-color: @theme_dark_border_color;
+	-gtk-icon-source: -gtk-scaled(url("assets/check-selected.svg"));
+}
+
+menu menuitem check:checked:hover,
+menu menuitem check:checked:focus {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-selected.svg"));
+	border-color: @theme_border_color;
+}
+
+checkbutton check:indeterminate,
+menu menuitem check:indeterminate {
+	background-image: none;
+	color: transparent;
+}
+
+checkbutton check:indeterminate:checked {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-mixed.svg"));
+}
+
+menu menuitem check:indeterminate:checked {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-mixed.svg"));
+}
+
+checkbutton check:disabled:indeterminate {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-mixed-disabled.svg"));
+}
+
+menu menuitem check:disabled:indeterminate {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-mixed-disabled.svg"));
+}
+
+checkbutton check:checked:hover:indeterminate,
+checkbutton check:checked:focus:indeterminate {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-mixed.svg"));
+}
+
+menu menuitem check:checked:hover:indeterminate,
+menu menuitem check:checked:focus:indeterminate {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-mixed.svg"));
+}
+
+radiobutton radio,
+menu menuitem radio {
+	border-radius: 50%;
+}
+
+radiobutton radio:checked {
+	background-color: mix (@theme_base_color, @theme_dark_color, 0.5);
+	border-color: @theme_dark_border_color;
+	-gtk-icon-source: -gtk-scaled(url("assets/radio-selected.svg"));
+}
+
+menu menuitem radio:checked {
+	-gtk-icon-source: -gtk-scaled(url("assets/radio-menu-selected.svg"));
+}
+
+radiobutton radio:disabled,
+menu menuitem radio:disabled {
+	border-color: @theme_light_border_color;
+}
+
+radiobutton radio:checked:disabled {
+	-gtk-icon-source: -gtk-scaled(url("assets/radio-selected-disabled.svg"));
+}
+
+menu menuitem radio:checked:disabled {
+	-gtk-icon-source: -gtk-scaled(url("assets/radio-menu-selected-disabled.svg"));
+}
+
+radiobutton radio:hover,
+menu menuitem radio:hover,
+radiobutton radio:focus,
+menu menitem radio:focus {
+	background-color: mix (@theme_base_color, @theme_dark_color, 0.5);
+	border-color: @theme_dark_border_color;
+}
+
+radiobutton radio:checked:hover
+radiobutton radio:checked:focus {
+	-gtk-icon-source: -gtk-scaled(url("assets/radio-selected.svg"));
+}
+
+radiobutton radio:indeterminate,
+menu menuitem radio:indeterminate {
+	background-image: none;
+	color: transparent;
+}
+
+radiobutton radio:indeterminate:checked {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-mixed.svg"));
+}
+
+menu menuitem radio:indeterminate:checked {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-mixed.svg"));
+}
+
+radiobutton radio:disabled:indeterminate {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-mixed-disabled.svg"));
+}
+
+menu menuitem radio:disabled:indeterminate {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-mixed-disabled.svg"));
+}
+
+radiobutton radio:checked:hover:indeterminate
+radiobutton radio:checked:focus:indeterminate {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-mixed.svg"));
+}
+
+menu menuitem radio:checked:hover:indeterminate,
+menu menuitem radio:checked:focus:indeterminate {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-mixed.svg"));
+}
+
+.view check,
+iconview check,
+treeview.check,
+treeview check,
+row check {
+	border: 2px solid @theme_light_border_color;
+	border-style: inset;
+	min-width: 14px;
+	min-height: 14px;
+	margin: 3px;
+	padding: 0px;
+}
+
+popover check {
+	border: 2px solid @theme_dark_border_color;
+	border-style: inset;
+}
+
+.view check:indeterminate,
+iconview check:indeterminate,
+treeview.check:indeterminate,
+row check:indeterminate {
+	min-height: 14px;
+	min-width: 14px;
+}
+
+.view radio,
+iconview radio,
+treeview.radio,
+row radio {
+	border: 2px solid @theme_light_border_color;
+	border-radius: 50%;
+	border-style: inset;
+	min-height: 14px;
+	min-width: 14px;
+	margin: 3px;
+	padding: 0px;
+}
+
+.view check:checked,
+iconview check:checked,
+treeview.check:checked,
+row check:checked {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-selected.svg"));
+}
+
+.view check:hover,
+iconview check:hover,
+treeview check:hover,
+row check:hover {
+	background-color: transparent;
+}
+
+.view check:checked:selected,
+iconview check:checked:selected,
+treeview.check:checked:selected,
+row:selected check:checked,
+.view check:checked:hover,
+iconview check:checked:hover,
+treeview.check:checked:hover,
+row:selected:hover check:checked,
+popover check:checked {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-selected.svg"));
+	background-color: transparent;
+}
+
+.view check:checked:disabled,
+iconview check:checked:disabled,
+treeview.check:checked:disabled,
+row check:checked:disabled,
+.view check:checked:disabled:selected,
+iconview check:checked:disabled:selected,
+treeview.check:checked:disabled:selected,
+row:selected check:checked:disabled {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-selected-disabled.svg"));
+}
+
+.view check:checked:indeterminate,
+iconview check:checked:indeterminate,
+treeview.check:checked:indeterminate,
+row check:checked:indeterminate {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-mixed.svg"));
+}
+
+.view check:checked:indeterminate:disabled,
+iconview check:checked:indeterminate:disabled,
+treeview.check:checked:indeterminate:disabled,
+row check:checked:indeterminate:disabled {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-mixed-disabled.svg"));
+}
+
+.view radio:checked,
+iconview radio:checked,
+treeview.radio:checked,
+row radio:checked {
+	-gtk-icon-source: -gtk-scaled(url("assets/radio-menu-selected.svg"));
+}
+
+.view radio:checked:selected,
+iconview radio:checked:selected,
+treeview.radio:checked:selected,
+row:selected radio:checked,
+.view radio:checked:hover,
+iconview radio:checked:hover,
+treeview.radio:checked:hover,
+row:selected:hover radio:checked,
+popover radio:checked {
+	-gtk-icon-source: -gtk-scaled(url("assets/radio-menu-selected.svg"));
+	background-color: transparent;
+}
+
+.view radio:disabled,
+iconview radio:disabled,
+treeview.radio:disabled,
+row radio:disabled {
+	-gtk-icon-source: -gtk-scaled(url("assets/radio-menu-selected-disabled.svg"));
+}
+
+.view radio:checked:indeterminate,
+iconview radio:checked:indeterminate,
+treeview.radio:checked:indeterminate,
+row radio:checked:indeterminate {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-mixed.svg"));
+}
+
+.view radio:checked:indeterminate:disabled,
+iconview radio:checked:indeterminate:disabled,
+treeview.radio:checked:indeterminate:disabled,
+row radio:checked:indeterminate:disabled {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-menu-mixed-disabled.svg"));
+}
+
+row checkbutton check:checked {
+	-gtk-icon-source: -gtk-scaled(url("assets/check-selected.svg"));
+}
+
+/* Client Side Decorations */
+headerbar button.titlebutton,
+headerbar button.image-button.popup {
+	background-color: transparent;
+	background-position: center center;
+	background-repeat: no-repeat;
+	color: transparent;
+}
+
+headerbar button.titlebutton.close,
+headerbar button.titlebutton.maximize,
+headerbar button.titlebutton.minimize {
+	border: none;
+	box-shadow: none;
+	margin: 0;
+}
+
+headerbar button.titlebutton.close,
+.titlebar button.titlebutton.close,
+headerbar button.titlebutton.close:backdrop:hover,
+.titlebar button.titlebutton.close:backdrop:hover {
+	background-image: -gtk-scaled(url("assets/close-button.svg"));
+}
+
+headerbar button.titlebutton.close:backdrop,
+.titlebar button.titlebutton.close:backdrop {
+	background-image: -gtk-scaled(url("assets/close-button-disabled.svg"));
+}
+
+headerbar button.titlebutton.close image {
+	-gtk-icon-style: requested; /* Important! Gets rid of built in close icon, so you can use your own */
+}
+
+headerbar button.titlebutton.close:hover,
+.titlebar button.titlebutton.close:hover,
+headerbar button.titlebutton.close:hover:backdrop,
+.titlebar button.titlebutton.close:hover:backdrop,
+headerbar button.titlebutton.maximize:hover,
+.titlebar button.titlebutton.maximize:hover,
+headerbar button.titlebutton.maximize:hover:backdrop,
+.titlebar button.titlebutton.maximize:hover:backdrop,
+headerbar button.titlebutton.minimize:hover,
+.titlebar button.titlebutton.minimize:hover,
+headerbar button.titlebutton.minimize:hover:backdrop,
+.titlebar button.titlebutton.minimize:hover:backdrop {
+	box-shadow: inset -2px -2px 1px 0px rgba(84, 68, 0, 0.50), 
+					inset 2px 2px 1px 0px rgba(255, 255, 255, 0.50);
+}
+
+headerbar button.titlebutton.maximize,
+.titlebar button.titlebutton.maximize,
+headerbar button.titlebutton.maximize:backdrop:hover,
+.titlebar button.titlebutton.maximize:backdrop:hover {
+	background-image: -gtk-scaled(url("assets/maximize-button.svg"));
+}
+
+headerbar button.titlebutton.maximize:backdrop,
+.titlebar button.titlebutton.maximize:backdrop {
+	background-image: -gtk-scaled(url("assets/maximize-button-disabled.svg"));
+}
+
+window.csd.maximized headerbar button.titlebutton.maximize,
+window.solid-csd.maximized headerbar button.titlebutton.maximize,
+window.csd.maximized .titlebar button.titlebutton.maximize,
+window.solid-csd.maximized .titlebar button.titlebutton.maximize,
+window.csd.maximized headerbar button.titlebutton.maximize:backdrop:hover,
+window.solid-csd.maximized headerbar button.titlebutton.maximize:backdrop:hover,
+window.csd.maximized .titlebar button.titlebutton.maximize:backdrop:hover,
+window.solid-csd.maximized .titlebar button.titlebutton.maximize:backdrop:hover {
+	background-image: -gtk-scaled(url("assets/maximized-button.svg"));
+}
+
+window.csd.maximized headerbar button.titlebutton.maximize:backdrop,
+window.solid-csd.maximized headerbar button.titlebutton.maximize:backdrop,
+window.csd.maximized .titlebar button.titlebutton.maximize:backdrop,
+window.solid-csd.maximized .titlebar button.titlebutton.maximize:backdrop {
+	background-image: -gtk-scaled(url("assets/maximized-button-disabled.svg"));
+}
+
+headerbar button.titlebutton.minimize,
+.titlebar button.titlebutton.minimize,
+headerbar button.titlebutton.minimize:backdrop:hover,
+.titlebar button.titlebutton.minimize:backdrop:hover {
+	background-image: -gtk-scaled(url("assets/minimize-button.svg"));
+}
+
+headerbar button.titlebutton.minimize:backdrop,
+.titlebar button.titlebutton.minimize:backdrop {
+	background-image: -gtk-scaled(url("assets/minimize-button-disabled.svg"));
+}
+
+headerbar button.image-button.popup image,
+headerbar button.appmenu image {
+	color: @theme_fg_color;
+}

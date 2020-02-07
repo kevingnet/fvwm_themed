@@ -1,0 +1,126 @@
+This are some of the apps I had to install to make theming possible or
+some are just apps that I like or use, maybe unrelated.
+Keep an eye on those that have to do with themes or colors, kde, gnome, gtk, fvwm
+
+NECESSARY
+fvwm
+wmctrl
+rxvt-unicode (or edit config, supports transparency, unicode and ansi colors)
+hsetroot (use default, or included fixed version)
+ - necessary for the themes to work 
+gtk-chtheme (using QtCurve)
+gtk-theme-switch2  (using QtCurve)
+systemsettings5 (workspace theme:Oxygen, application style:Oxygen, gnome application styles: (gtk2=QtCurve, gtk3=pytheme)
+gtk-theme-config
+kde-style-oxygen-qt4
+kde-style-oxygen-qt5
+plasma-theme-oxygen
+gtk2-engines-qtcurve
+
+IF NEEDED
+stalonetray (if you need notifications or if you use the full panel, it shows in the panel)
+xcompmgr (for transparency)
+wm-icons (icons in menus)
+fvwm-icons
+xscreensaver-data
+xscreensaver-data-extra
+xscreensaver-gl
+xscreensaver-gl-extra
+xscreensaver-screensaver-bsod
+xscreensaver-screensaver-webcollage
+ - font files are nice to have, however if they're not installed you might have to edit config
+terminus-font 
+xfonts-terminus
+xfonts-terminus-dos
+xfonts-terminus-oblique
+xfonts-unifont
+ttf-unifont
+ttf-xfree86-nonfree
+
+NECESSARY FOR FULL PANEL
+wmclock
+wmfire
+wmhdplop
+wmmoonclock
+wmnet
+wmsun
+xarclock
+
+
+MIGHT BE NECESSARY, some are, some may be, haven't experimented with permutations
+ - These most likely are needed, so that you can configure the theme settings for gtk, gnome and kde to use 
+   a uniform look
+gnome-themes-extra
+gnome-themes-standard
+gtk3-engines-xfce
+kde-config-gtk-style
+kde-config-plymouth
+kde-config-sddm
+kde-plasma-desktop
+plasma-desktop
+plasma-framework
+plasma-workspace
+qt5-default
+qt5-style-plugins
+qt5ct
+x11-apps
+x11-utils
+xdg-user-dirs-gtk
+xfwm4-themes
+xutils
+xutils-dev
+plasma-desktop-dev
+plasma-workspace-dev
+qtbase5-dev
+xsettings-kde
+
+
+PYTHON LIBRARIES
+- Needed
+json
+png
+string 
+shutil
+subprocess
+chroma
+PIL (for thumnail generation)
+
+- Needed for tools that generate theme from image
+cv2
+sklearn.cluster
+
+PYTHON PACKAGES
+python3-png
+python-sklearn
+python3-numpy
+python3-opencv
+python3-sklearn
+python-png
+python-opencv
+  these may not be needed
+pyqt5-dev
+python-pip
+python-pyqt5
+python-qt4
+python-qwt5-qt4
+python3-pyqt4
+python3-pyqt5
+python3-qtpy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

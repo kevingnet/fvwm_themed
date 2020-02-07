@@ -1,0 +1,5 @@
+generate_* create and display fortunes using some fun apps and cowsay.
+
+hsetroot is a fixed version of the tool because it's broken, source is included in src dir.
+
+thumb creates icon files when windows are minimized in fvwm, source is also in src dir.

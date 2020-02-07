@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=pytheme
+Comment=A dynamic theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=pytheme
+MetacityTheme=pytheme
+ApplicationFont=Terminus 13
