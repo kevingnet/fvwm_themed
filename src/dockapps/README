@@ -1,0 +1,20 @@
+TAR zip files are originals
+
+Extracted files have modified versions of bitmap files so that 
+the ugly gray lines do not show. Otherwise your nice theme will
+be polluted by this usually out of place color.
+
+The modified files are *.xpm, all the rest should be exactly
+as the originals.
+
+The files in wmnet are a mess, because in order to build and install
+it was necessary to patch. All that is included in that directory.
+
+The applications here are used in the default fvwm config file 
+and are shown in the bottom right corner panel.
+
+The quick way is to simply copy the files in bin over to /usr/bin and 
+overwrite the originals.
+
+Otherwise, you can enter each directory and build them yourself and then 
+install them in the standard way.
