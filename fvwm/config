@@ -1,0 +1,744 @@
+###########
+#  ____________________________
+# (   _________________________)
+#  ) (__  _  _  _    _  
+# (   __)( \/ )( \/\/ )/\/\
+#  ) (    \  /  \    //    \
+# (___)    \/    \/\/(_/\/\_) 2.6
+#
+# My personal fvwm2rc file
+#
+#######################
+
+#####
+# Set Environment variables
+###########
+SetEnv fvwm_home ~/.fvwm
+SetEnv fvwm_scrpt ~/.fvwm/scripts
+SetEnv fvwm_themes ~/.fvwm/themes
+SetEnv fvwm_icon /usr/share/icons/wm-icons
+
+SetEnv fvwm_font -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
+SetEnv fvwm_small_font -*-fixed-*-*-*-*-7-*-*-*-*-*-*-*
+SetEnv fvwm_tiny_font -*-fixed-*-*-*-*-6-*-*-*-*-*-*-*
+SetEnv fvwm_terminal_font xft:terminus:pixelsize=18
+SetEnv fvwm_default_font -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
+SetEnv fvwm_times_font -*-times-*-r-*-*-12-*-*-*-*-*-*-*
+SetEnv fvwm_title_font Shadow=2:-*-terminus-bold-r-*-*-18-*-*-*-*-*-*-*
+SetEnv fvwm_menu_font Shadow=1:-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
+
+
+Style * Font $[fvwm_default_font]
+DefaultFont $[fvwm_default_font]
+
+#####
+# Set the image path
+###########
+ImagePath $[fvwm_themes]:$[fvwm_icon]:$[fvwm_icon]/48x48:+
+
+# run FvwmTheme before anything else is done
+ModuleSynchronous Timeout 5 FvwmTheme
+
+Include $[fvwm_home]/FvwmFormDefaults
+
+#----------------------------------------------------
+#              C O L O R   T H E M E S
+#----------------------------------------------------
+
+#Read ~/.fvwm/scripts/fvwm_theme.config
+PipeRead `cat $[fvwm_scrpt]/fvwm_theme.config`
+
+
+SetEnv PrimaryColor `exec echo "${PriColor:1}"`
+
+DefaultColorset 1
+DefaultColors $[SecFont] $[SecColor]
+
+#Borders
+Colorset 4 fg red, bg $[TerDark]
+Colorset 5 fg blue, bg $[QuatDark]
+Style * BorderColorset 5
+Style * HilightBorderColorset 4
+
+TitleStyle Centered Height 20
+TitleStyle Inactive TiledPixmap t2.png -- Raised
+TitleStyle Active TiledPixmap t.png -- Raised
+
+#TITLE BAR FONTS
+Style * ForeColor $[SecFont]
+Style * HilightFore $[PriFont]
+#TITLE BAR BACKGROUNDS
+Style * BackColor $[ButtonBG]
+Style * HilightBack $[ButtonBGHL]
+
+#----------------------------------------------------
+
+Style * IconBox 1530x160+5-5, IconFill Left Bottom, IconGrid 40 40
+Style *	!IconTitle
+Style * IconBackgroundRelief 1
+Style * FocusFollowsMouse
+Style * TileCascadePlacement
+Style * ClickToFocus
+Style * HandleWidth 6 #3
+Style * Borders BorderWidth 4 #1
+Style * TitleWidth 1
+Style * MWMFunctions, MWMDecor, MWMButtons, MWMBorder, HintOverride, DecorateTransient, #NoPPosition
+Style * GNOMEUseHints
+#Style * IconSize 16 16
+
+SetEnv fvwm_term_start "/usr/bin/rxvt-unicode -geometry 110x44+0+0 -bg "$[TermBGInit]" -fg white -cr cyan -sl 2000 +vb +sb -fn "$[fvwm_terminal_font]" -fade 40 -fadecolor "$[TermFade]" -depth 32 " 
+
+SetEnv fvwm_term "/usr/bin/rxvt-unicode -geometry 110x44+0+0 -bg "$[TermBG]" -fg white -cr cyan -sl 2000 +vb +sb -fn "$[fvwm_terminal_font]" -fade 40 -fadecolor "$[TermFade]" -depth 32 " 
+
+SetEnv fvwm_term_rand "/usr/bin/rxvt-unicode -geometry 110x44+0+0 -bg rgba:`$[fvwm_scrpt]/rand_color.py` -fg white -cr cyan -sl 2000 +vb +sb -fn "$[fvwm_terminal_font]" -fade 40 -fadecolor "$[TermFade]" -depth 32 " 
+
+SetEnv switch_theme "~/.fvwm/scripts/switch_theme.py"
+
+## set desktops
+DesktopSize 1x1
+DesktopName 0 main
+DesktopName 1 work
+EdgeScroll 0 0
+
+Emulate Fvwm
+Xinerama 1
+
+## define the screen area that windows can use
+## syntax: 'EwmhBaseStruts left right top bottom' in pixels
+EwmhBaseStruts 0 0 0 0
+
+## ignore NumLock
+IgnoreModifiers L25
+
+## don't show icons for minimized/iconified windows
+#Style "*" NoIcon
+
+## mouse cursor styles
+CursorStyle ROOT         left_ptr
+CursorStyle TITLE        left_ptr
+CursorStyle DEFAULT      left_ptr
+CursorStyle SYS          left_ptr
+CursorStyle MENU         left_ptr
+
+## additional focus policy configuration,
+## automatically give focus to new windows
+DestroyModuleConfig AW-event: *
+
+TitleStyle ActiveDown -- flat
+ButtonStyle All (-- Raised) InactiveDown (--flat) ActiveDown (-- flat)
+
+# Recall that mouse formats look like this:
+#
+# +------------+
+# | ||  ||  || |
+# |            |
+# +------------+
+#   1   2   3
+
+# Binding Functions
+#
+# "I" stands for Immediate
+# "M" stands for Motion
+# "C" stands for Click
+# "H" stands for Hold
+# "D" stands for Double Click
+
+# -------------------------------------------------------------
+# Contexts:
+#     R = Root Window                 rrrrrrrrrrrrrrrrrrrrrr
+#     W = Application Window          rIrrrrFSSSSSSSSSFrrrrr
+#     F = Frame Corners               rrrrrrS13TTTT642Srrrrr
+#     S = Frame Sides                 rIrrrrSwwwwwwwwwSrrrrr
+#     T = Title Bar                   rrrrrrSwwwwwwwwwSrrrrr
+#     I = Icon                        rIrrrrFSSSSSSSSSFrrrrr
+#                                     rrrrrrrrrrrrrrrrrrrrrr
+# Numbers are buttons: 1 3 5 7 9   0 8 6 4 2
+#
+# Modifiers: (A)ny, (C)ontrol, (S)hift, (M)eta, (N)othing
+# -------------------------------------------------------------
+
+## mouse bindings
+ButtonStyle 2 - MWMDecorClose
+ButtonStyle 4 - MWMDecorMax
+ButtonStyle 6 - MWMDecorMin
+
+ButtonStyle 4 Vector 5 20x20@1 80x20@1 80x80@0 20x80@0 20x20@1
+ButtonStyle 4 - MWMDecorMax
+
+ButtonStyle 6 Vector 5 20x70@1 40x70@1 40x85@0 20x85@0 20x70@1
+ButtonStyle 6 - MWMDecorMin
+
+ButtonStyle 2 Vector 17 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 60x50@0 80x70@1 80x80@0 70x80@0 50x60@0 30x80@0 20x80@0 20x70@0 40x50@1 20x30@0 20x20@1
+ButtonStyle 1 - MWMDecorMenu
+
+Mouse 0 2 N FvwmClose
+Mouse 1 4 A  FvwmMaximize
+Mouse 1 6 A  FvwmMoveOrIconify
+
+Mouse 2 T N Stick
+Mouse 3 T N FvwmWindowTransparent
+Mouse 1 T A MakeWindowOpaque
+AddToFunc MakeWindowOpaque
++ D FvwmWindowOpaque
++ C Raise
++ C Focus
++ M Move
+
+
+Mouse 0 1 A FvwmDeleteOrWindowMenu 
+Mouse 0 I A FvwmRestore
+Mouse 1 W M Pick move
+Mouse 1 R A Menu Mainmenu Nop
+Mouse 2 R A Menu ThemeMainmenu Nop
+Mouse 3 R A Menu ApplicationsMenu Nop
+Mouse 3 F A Menu FvwmWindowOpsMenu Nop
+Mouse 3 S A Menu FvwmWindowOpsMenu Nop
+Mouse 3 R A Menu FvwmWindowOpsMenu
+
+## key bindings
+Key Escape A S Popup Mainmenu Root c c
+Key Escape A C Popup MenuFvwmWindowOps Root c c
+Key Escape A CS WindowList Root c c NoNumInDeskTitle, IconifiedAtEnd
+
+Key Q A C Close
+Key N A M Maximize 100 100
+Key B A M Maximize 0 100
+Key G A M Maximize 100 0
+Key H A M Thumbnail
+Key M A M WindowShade Toggle
+
+#move
+Key Right A SM PointerWindow Move w+1 w+0 Warp
+Key Left A SM PointerWindow Move w-1 w+0 Warp
+Key Up A SM PointerWindow Move w+0 w-1 Warp
+Key Down A SM PointerWindow Move w+0 w+1 Warp
+
+#resize
+Key Right A CM PointerWindow Resize br w+1 w+0
+Key Left A CM PointerWindow Resize br  w-1 w+0
+Key Up A CM PointerWindow Resize br w+0 w-1
+Key Down A CM PointerWindow Resize br w+0 w+2
+
+Key F1 A 4 GotoDesk 0 0
+Key F2 A 4 GotoDesk 0 1
+Key Up A 4 GotoDesk -1 0 2
+Key Down A 4 GotoDesk 1 0 2
+
+Key 1 A C GotoDesk -1 0 1
+Key 2 A C GotoDesk  1 0 1
+
+## styles for some applications
+Style "conky"     !Handles, Sticky, WindowListSkip, CirculateSkip
+Style "Clock"     !Handles, Sticky, CirculateSkip, BorderWidth 0
+
+#####
+# FUNCTIONS
+###########
+
+SetEnv DIR Next                                                             
+
+AddToFunc FocusRaiseAndStuff
++ I Iconify off
++ I Focus
++ I Raise
+
+AddToFunc SwitchWindow
++ I $[DIR] (CurrentPage, !Iconic, !Sticky) FocusRaiseAndStuff
++ I Deschedule 134000
++ I PipeRead `[ "$[DIR]" == "Prev" ] && \
+	echo 'SetEnv NDIR Next' || \
+	echo 'SetEnv NDIR Prev'`
++ I Schedule 700 134000 SetEnv DIR $[NDIR]
+
+Key Tab A M  SwitchWindow
+
+DestroyFunc LimitApplication
+AddToFunc   LimitApplication
++ I Any ($0, CurrentDesk) FlipFocus
++ I TestRc (NoMatch) None ($0, CurrentDesk) Exec exec $0
+
+DestroyFunc NextWindow
+AddToFunc NextWindow
++ I     Next (CurrentPage,!Sticky,!Iconic,AcceptsFocus) Focus
++ I     Current Raise
+
+## move to desk menu
+DestroyMenu MenuDeskList
+AddToMenu MenuDeskList
++ " Desk 1" Pick MoveToDesk 0 0
++ " Desk 2" Pick MoveToDesk 0 1
+
+## start some applications maximized
+DestroyModuleConfig FE-StartMaximized: *
+*FE-StartMaximized: Cmd Function
+*FE-StartMaximized: add_window FuncStartMaximized
+
+DestroyFunc FuncStartMaximized
+AddToFunc   FuncStartMaximized
+##+ I ThisWindow ("URxvt") Maximize
+
+DestroyFunc FuncNewWindow
+AddToFunc   FuncNewWindow
++ I ThisWindow (AcceptsFocus) FlipFocus NoWarp
+
+DestroyFunc FvwmWindowTransparent
+AddToFunc   FvwmWindowTransparent
++ I ThisWindow (!Shaded, Iconifiable, !Iconic) PipeRead \
+    "/usr/bin/transset -i $[w.id] 0.6"
+
+DestroyFunc FvwmWindowTranslucid
+AddToFunc   FvwmWindowTranslucid
++ I ThisWindow (!Shaded, Iconifiable, !Iconic) PipeRead \
+    "/usr/bin/transset -i $[w.id] 0.2"
+
+DestroyFunc FvwmWindowOpaque
+AddToFunc   FvwmWindowOpaque
++ I ThisWindow (!Shaded, Iconifiable, !Iconic) PipeRead \
+    "/usr/bin/transset -i $[w.id] 1"
+
+## more adjustment to focus policy,
+## re-focus the last focused window when switching pages
+DestroyFunc CurrentPageFocusFunc
+AddToFunc CurrentPageFocusFunc
++ "I" Next (CurrentPage, State 2) Focus
++ "I" None (CurrentPage, Focused) Prev (CurrentPage, !Iconified, \
+   !Sticky) Focus
+
+#DestroyFunc     Thumbnail
+#AddToFunc       Thumbnail
+#+ I Raise
+#+ I ThisWindow (!Shaded, Iconifiable, !Iconic) PipeRead \
+#    "thumbOG $[w.id] 200 /dev/shm/icon.tmp.$[w.id].png  $[w.IconFile]"
+#+ I Iconify 
+
+DestroyFunc Thumbnail
+AddToFunc   Thumbnail
++ I Raise
++ I PipeRead "$[fvwm_scrpt]/notify_desktop.py $[w.id]"
++ I SetEnv Icon-$[w.id] $[w.IconFile]
++ I ThisWindow (!Shaded, Iconifiable, !Iconic) PipeRead \
+    "thumbOG $[w.id] 180 /dev/shm/icon.tmp.$[w.id].png"
++ I PipeRead "cp /dev/shm/icon.tmp.$[w.id].png $fvwm_home/.fvwm/wm-icons/xterm.png"
++ I Iconify
+
+DestroyFunc DeThumbnail
+AddToFunc   DeThumbnail
++ I PipeRead "echo WindowStyle IconOverride, Icon \\$\\[Icon-$[w.id]\\]"
++ I UnsetEnv Icon-$[w.id]
++ I Exec exec "rm -f /dev/shm/icon.tmp.$[w.id].png"
+
+*FvwmEvent: deiconify DeThumbnail
+       
+#span>Style   *   EWMHMiniIconOverride, \
+#            Icon $[fvwm_icon]/64x64/filesystems/gnome-fs-network.png, \
+#            MiniIcon $[fvwm_icon]/16x16/filesystems/gnome-fs-network.png
+            
+#----------------------------------------------------
+# Window action functions
+#----------------------------------------------------
+#
+#>> The jiggle function
+DestroyFunc Jiggle
+AddToFunc Jiggle I PipeRead "for ((y=$0;y>=0;y--)) do printf 'AnimatedMove w+%up w+%up\\nAnimatedMove w-%up w-%up\\n' ${y} ${y} ${y} ${y}; done"
+
+DestroyFunc IconifyWithNoIcon
+AddToFunc IconifyWithNoIcon
++ I ThisWindow (Iconifiable) PipeRead \
+    "echo WindowStyle NoIcon\
+    || echo Nop"
++ I Iconify
+
+
+#####
+# Basic Functions
+###########
+DestroyFunc FvwmDeleteOrWindowMenu
+AddToFunc   FvwmDeleteOrWindowMenu
++ H Nop
++ M Nop
++ I ThisWindow (!Shaded, Iconifiable, !Iconic) PipeRead \
+    "/usr/bin/transset -i $[w.id] 1 "
++ D Delete
++ C Menu FvwmWindowOpsMenu
+
+DestroyFunc FvwmRestore
+AddToFunc   FvwmRestore
++ D Iconify
+#+ I PipeRead `sleep 0.005; echo Stick`
+#+ I Stick
+#+ I PipeRead "xmessage test -timeout 2"
+
+DestroyFunc FvwmClose
+AddToFunc   FvwmClose
++ H Nop
++ M Nop
++ C Close $0 $1
+
+DestroyFunc FvwmMaximize
+AddToFunc   FvwmMaximize
++ H Nop
++ M Nop
++ C Maximize $0 $1
+
+DestroyFunc FvwmMoveOrIconify
+AddToFunc   FvwmMoveOrIconify
++ H Nop
++ M Nop
++ C Thumbnail
+
+DestroyFunc FvwmWindowShade
+AddToFunc   FvwmWindowShade
++ D WindowShade $0
+
+#####
+# MODULES
+###########
+
+#####
+# FvwmAnimate
+###########
+DestroyModuleConfig FvwmAnimate: *
+*FvwmAnimate: Delay 10
+*FvwmAnimate: Iterations 20
+*FvwmAnimate: Twist 0
+*FvwmAnimate: Width 1
+*FvwmAnimate: Effect Zoom3D
+*FvwmAnimate: Color $[TerColor]
+#Frame, Lines, Flip, Turn, Zoom3D, Twist Random, and None
+#SendToModule FvwmAnimate animate sx sy sw sh dx dy dw dh
+
+*AW-event: Cmd Function
+*AW-event: add_window FuncNewWindow
+
+DestroyFunc FuncNotify
+AddToFunc   FuncNotify
++ I 'Exec exec $[fvwm_scrpt]/notify_desktop.py FuncNotify'
+
+*AW-event: Cmd Function
+*AW-event: enter_window FuncNotify
+
+DestroyModuleConfig FvwmEvent: *
+*FvwmEvent: Cmd Function
+*FvwmEvent: new_page CurrentPageFocusFunc
+*FvwmEvent: new_desk CurrentPageFocusFunc
+*FvwmEvent: destroy_window CurrentPageFocusFunc
+
+*FvwmEvent: iconify exec $[fvwm_scrpt]/notify_desktop.py information
+*AW-event: iconify exec $[fvwm_scrpt]/notify_desktop.py information
+
+
+## configure a panel that shows pager and dockapps
+DestroyModuleConfig FvwmPager: *
+*FvwmPager: Rows 1
+*FvwmPager: Columns 2
+*FvwmPager: MiniIcons
+*FvwmPagerFont $[fvwm_small_font]
+*FvwmPager: SmallFont $[fvwm_tiny_font]
+*FvwmPager: WindowColors                   $[SecDark] $[SecColor] $[PriDark] $[PriColor]
+*FvwmPager: Fore                           $[SecFont]
+*FvwmPager: Hilight                        $[PriColor]
+*FvwmPager: Back                           $[SecColor]
+
+########################## Icon Manager ####################################
+# this FvwmIconMan setup is for swallowing in button bar example
+DestroyModuleConfig FvwmIconMan: *
+*FvwmIconMan: NumManagers 1
+*FvwmIconMan: Resolution  page
+*FvwmIconMan: Font        $[fvwm_small_font]
+*FvwmIconMan: Format      "%t"
+*FvwmIconMan: Action      Mouse   1 N sendcommand Focus, sendcommand "Thumbnail"
+*FvwmIconMan: Action      Mouse   2 N sendcommand "Thumbnail 1"
+*FvwmIconMan: Action      Mouse   3 N sendcommand "FvwmIdent"
+*FvwmIconMan: FollowFocus true
+*FvwmIconMan: Sort        none
+*FvwmIconMan: DontShow icon=Untitled resource=Untitled
+*FvwmIconMan: DrawIcons false
+*FvwmIconMan: ButtonGeometry  200x0
+*FvwmIconMan: ManagerGeometry 1x7
+*FvwmIconMan: NoIconAction "SendToModule FvwmAnimate animate"
+*FvwmIconMan: ReliefThickness       1
+*FvwmIconMan: IconBackgroundRelief  0 
+*FvwmIconMan: HandleWidth 	    0
+*FvwmIconMan: Borders BorderWidth   0
+*FvwmIconMan: Shape True
+*FvwmIconMan: Foreground                   red
+*FvwmIconMan: Background                   red
+Style "FvwmIconMan" BorderWidth 0
+*FvwmIconMan: FocusButton down               $[TerFont] $[TerColor]
+*FvwmIconMan: FocusAndSelectButton down         $[TerFont] $[TerDark]
+*FvwmIconMan: SelectButton down               $[TerFont] $[TerColor]
+*FvwmIconMan: PlainButton up               $[QuatFont] $[QuatLight]
+*FvwmIconMan: IconButton up                $[QuatFont] $[QuatDark]
+*FvwmIconMan: IconAndSelectButton down       $[TerFont] $[TerColor]
+
+#####
+# Basic Commands
+
+Key F2 A S LimitApplication konqueror
+Key F11 A S LimitApplication google-chrome
+Key F8 A S Exec gimp
+Key C A CS Exec osmo -cal
+Key R A CS Exec grun
+Key L A CS Exec xscreensaver-command -lock
+
+SetEnv fvwm_webbrowser /usr/bin/google-chrome
+SetEnv fvwm_files /usr/bin/dolphin
+SetEnv filelight "~"
+SetEnv kate "/usr/bin/kate"
+SetEnv xkill "/usr/bin/xkill"
+SetEnv xsensors "/usr/bin/xsensors"
+SetEnv eclipse "/opt/eclipse/eclipse"
+SetEnv wireshark "/usr/bin/wireshark"
+SetEnv bless "/usr/bin/bless"
+SetEnv konqueror "/usr/bin/konqueror ~"
+SetEnv kcalc "/usr/bin/kcalc"
+SetEnv pgadmin "/usr/bin/pgadmin3"
+SetEnv osmo "/usr/bin/osmo -cal"
+SetEnv planet "/usr/bin/xplanet -background 0x000010 -longitude 290 -latitude 30"
+
+DestroyFunc LimitApplication
+    AddToFunc   LimitApplication
+    + I Any ($0, CurrentDesk) FlipFocus
+    + I TestRc (NoMatch) None ($0, CurrentDesk) Exec exec $0
+     
+AddToFunc ToggleXterm
++ I All (my_xtermwindow) Close
++ I TestRc (NoMatch) Exec xterm -T my_xtermwindow
+
+#####
+# PANEL
+###########
+##################### Dock Station Manager ###############################
+# this FvwmIconMan setup is for swallowing in button bar example
+Style "MyDock" !Title, !Handles, Sticky, WindowListSkip, Borders, BorderWidth 3
+DestroyModuleConfig MyDock: *
+*MyDock: Geometry   	  64x64-0-0
+*MyDock: ButtonGeometry   64x64-0-0
+*MyDock: Padding          2 1
+*MyDock: Frame            1 
+Colorset 6 fg $[TerColor], bg $[TerDark]
+Colorset 7 fg $[QuatColor], bg $[QuatDark] 
+*MyDock: Colorset         7
+*MyDock: ActiveColorset   6
+
+PipeRead `cat $[fvwm_home]/config_panel`
+#PipeRead `cat $[fvwm_home]/config_panel_full`
+
+*FvwmButtons: Colorset 1
+
+#
+# Icon file specificatio  ns
+#
+# Mostly, you don't have to specify icon files, as FvwmIconBox now
+# reads icon files specified in Style commands.
+#
+#*FvwmIconBox:             "Fvwm*"         -
+## key binding to raise and lower the MyDock panel
+DestroyFunc  MyDockFunc
+AddToFunc    MyDockFunc
++ I Next (MyDock, Layer 6) Layer
++ I TestRc (NoMatch) Next (MyDock) Layer 0 6
+
+Key D A 4   MyDockFunc
+
+#####
+# MENUS
+###########
+
+#MENU COLORS
+Colorset 2 fg $[PriCompl], bg $[PriColor]
+Colorset 1 fg $[SecFont], bg $[SecColor]
+Colorset 3 fg $[TerFont], bg $[TerColor]
+Colorset 10 fg $[QuatCompl], bg $[QuatColor]
+
+MenuStyle * TitleColorset 10, HilightTitleBack
+MenuStyle * MenuColorset 3, ActiveColorset 2, HilightBack
+MenuStyle * Hilight3DThick, Animation
+MenuStyle * BorderWidth 1, TitleUnderlines2, SeparatorsLong
+MenuStyle * TrianglesRelief, ItemFormat "%.5|%.5i%.5l%.5i%2.3>%2|"
+MenuStyle * Font $[fvwm_menu_font]
+MenuStyle * TitleFont $[fvwm_title_font]
+
+Read /etc/X11/fvwm/menudefs.hook Quiet
+Read menudefs.hook Quiet
+
+AddToFunc FuncFvwmMenuDirectory
++ I PipeRead `fvwm-menu-directory -d '$0' --title "Textures" --command-file "exec hsetroot -tile \\"%f\\"" --icon-file "%f"  `
+  
+# taviso's wallpaper browser
+DestroyFunc WallpaperBrowser
+AddToFunc WallpaperBrowser
++ I PipeRead 'test ! -d "$0/.thumbs" && mkdir "$0/.thumbs"; \
+    for i in "$0/"*; do \
+        test -f "$0/.thumbs/${i##*/}" \
+            -a "${i}" -ot "$0/.thumbs/${i##*/}" || { \
+                convert -quality 0 -scale 48 "${i}" "png:$0/.thumbs/${i##*/}" 2>/dev/null || continue; \
+            }; \
+    done; \
+    fvwm-menu-directory --dir $0 --title "" --icon-file __PIXMAP__ --command-file "Exec exec $[fvwm_scrpt]/setroot.sh \\"%f\\" " | sed -e "s#FuncFvwmMenuDirectory#WallpaperBrowser#g" -e "s#__PIXMAP__\\(.*\\)\\"\\(.*/\\)\\(.*\\)\\"#\\2.thumbs/\\3\\1\\2\\3#g"'
+    
+DestroyFunc TintedWallpaperBrowser
+AddToFunc TintedWallpaperBrowser
++ I PipeRead 'test ! -d "$0/.thumbs" && mkdir "$0/.thumbs"; \
+    for i in "$0/"*; do \
+        test -f "$0/.thumbs/${i##*/}" \
+            -a "${i}" -ot "$0/.thumbs/${i##*/}" || { \
+                convert -quality 0 -scale 48 "${i}" "png:$0/.thumbs/${i##*/}" 2>/dev/null || continue; \
+            }; \
+    done; \
+    fvwm-menu-directory --dir $0 --title "" --icon-file __PIXMAP__ --command-file "exec $[fvwm_scrpt]/setwallpaper.py \\"%f\\" \\$PriColor " | sed -e "s#FuncFvwmMenuDirectory#TintedWallpaperBrowser#g" -e "s#__PIXMAP__\\(.*\\)\\"\\(.*/\\)\\(.*\\)\\"#\\2.thumbs/\\3\\1\\2\\3#g"'
+
+    
+#####
+# ThemesMenu
+###########
+PipeRead `cat $[fvwm_scrpt]/ColorsMenu`
+
+## main menu
+DestroyMenu "Mainmenu"
+AddToMenu "Mainmenu" "Main Menu" Title
+#AddToMenu Mainmenu MissingSubmenuFunction FuncFvwmMenuDirectory
+AddToMenu Mainmenu MissingSubmenuFunction TintedWallpaperBrowser
++ DynamicPopUpAction Function CreateRootMenu
+
+
++ DynamicPopDownAction DestroyMenu recreate RootMenu
++ "Editor%menu/file.xpm%" Exec exec $[kate]
++ "Web%menu/www.xpm%" Exec exec $[fvwm_webbrowser]
++ "Files%menu/file-manager.xpm%" Exec exec $[fvwm_files]
++ "XTerm%menu/terminal.xpm%" Exec exec $[fvwm_term]
++ "XTerm_rand%menu/terminal-special.xpm%" Exec exec $[fvwm_term_rand]
++ "" Nop
+PipeRead `cat $[fvwm_scrpt]/ColorsMenuList`
++ "Root Color%menu/colors.xpm%"  Popup FvwmRootBGMenu
+PipeRead `cat $[fvwm_scrpt]/textures_menu`
++ "XDG"  Popup MenuFvwmRoot
++ "Debian%menu/gnu.xpm%"                  Popup "/Debian"
++ "" Nop
++ "Restart Fvwm%menu/restart.xpm%" Restart
++ "Identify%menu/information.xpm%" Pick Module FvwmIdent
++ "Notify%menu/information.xpm%" Exec exec $[fvwm_scrpt]/notify_desktop.py information
++ "Quit Fvwm%menu/quit.xpm%" Quit
++ "" Nop
++ "Lock%menu/lock.xpm%" Exec exec xscreensaver-command -lock
+
+## main menu
+DestroyMenu "ThemeMainmenu"
+AddToMenu "ThemeMainmenu" "Theme Menu" Title
+AddToMenu ThemeMainmenu MissingSubmenuFunction WallpaperBrowser
+PipeRead `cat $[fvwm_scrpt]/ColorsThemeList`
++ "Root Color%menu/colors.xpm%"  Popup FvwmRootBGMenu
+PipeRead `cat $[fvwm_scrpt]/textures_menu`
+
+AddToMenu MenuFvwmRoot "XDG Menu" Popup XDGMenu
+PipeRead 'fvwm-menu-desktop'
+
+DestroyMenu FvwmRootBGMenu
+AddToMenu   FvwmRootBGMenu "Root Background" Title
++ "Root Color" Exec exec hsetroot -solid "$[RootColor]"
++ "Font Color" Exec exec hsetroot -solid "$FontColor]"
++ "Black Color" Exec exec hsetroot -solid "#000000"
++ "Red Color" Exec exec hsetroot -solid "#150000"
++ "Blue Color" Exec exec hsetroot -solid "#000020"
++ "Green Color" Exec exec hsetroot -solid "#001500"
+
+## window operations menu
+DestroyMenu MenuFvwmWindowOps
+AddToMenu MenuFvwmWindowOps
++   "Move To Desk"      Popup MenuDeskList
++   ""  Nop
++   "Shade/Unshade"     Pick WindowShade Toggle
++   "Iconify"           Pick Iconify
++   "Maximize"          Pick Maximize
++   ""  Nop
++   "Raise/Lower"       Pick RaiseLower
++   "Stick/Unstick"     Pick Stick
++   ""  Nop
++   "Identify"          Pick Module FvwmIdent
++   ""  Nop
++   "Close"             Pick Close
++   "Destroy"           Pick Destroy
+
+
+#####
+# fvwm Window Operation Menu
+###########
+DestroyMenu FvwmWindowOpsMenu
+AddToMenu   FvwmWindowOpsMenu "Window Operations" Title
++ "Move%menu/window-move.xpm%"  Move
++ "AnimatedMove%menu/window-move.xpm%"  AnimatedMove
++ "Jiggle%menu/window-move.xpm%"  Pick Jiggle 15
++ "Resize%menu/window-resize.xpm%"  Resize
++ "(De)Iconify%menu/window-iconify.xpm%"  Iconify
++ "(Un)Maximize%menu/window-maximize.xpm%"  Maximize
++ "(Un)Shade%menu/window-shade.xpm%"  WindowShade
++ "(Un)Stick%menu/window-stick.xpm%"  Stick
++ "" Nop
++ "Close%menu/window-close.xpm%"  Close
++ "Delete%menu/window-delete.xpm%"  Delete
++ "Destroy%menu/window-destroy.xpm%"  Destroy
++ "" Nop
++ "StaysOnTop%menu/window-raise.xpm%"  Pick (CirculateHit) Layer 0 6
++ "Layer +1%menu/window-raise.xpm%"  Pick (CirculateHit) Layer +1
++ "StaysPut%menu/window.xpm%"  Pick (CirculateHit) Layer 0 4
++ "Layer -1%menu/window-lower.xpm%"  Pick (CirculateHit) Layer -1
++ "StaysOnBottom%menu/window-lower.xpm%"  Pick (CirculateHit) Layer 0 2
++ "" Nop
++ "%menu/window.xpm%Window Screenshot"  Pick (CirculateHit) FvwmWindowScreenshot
++ "%menu/display.xpm%Screenshot" FvwmDesktopScreenshot 5
++ "" Nop
++ "Identify%menu/window-identify.xpm%"  Module FvwmIdent
+
+#####
+# Startup Functions
+###########
+
+# first initialised
+DestroyFunc InitFunction
+AddToFunc   InitFunction
++ I Exec exec $[fvwm_term_start]  
++ I Exec exec /usr/bin/xcowfortune
+
+# first initialised, restarts.
+AddToFunc StartFunction
++ I Exec exec /usr/bin/xscreensaver
++ I Schedule 1000 Exec exec /usr/bin/xcompmgr -f 
++ I Module FvwmCommandS
++ I Module FvwmScript
++ I Module FvwmAnimate
++ I Module FvwmForm FvwmForDefaults
++ I Module FvwmEvent
++ I Module FvwmEvent AW-event
++ I Module FvwmEvent FE-StartMaximized
++ I Module FvwmButtons MyDock 
++ I Exec exec hsetroot -solid "$[RootColor]"
++ I PipeRead `$[fvwm_scrpt]/setroot_find_in_textures.py "$[ThemeName]"`
+
+# restarts
+DestroyFunc RestartFunction
+AddToFunc   RestartFunction
++ I Exec exec pkill wmnet
++ I Exec exec pkill wmfire
++ I Exec exec pkill wmclock
++ I Exec exec pkill xarclock
++ I Exec exec pkill xload
++ I Exec exec pkill wmlife
++ I Exec exec pkill wmclock
++ I Exec exec pkill wmhdplop
++ I Exec exec pkill wmmoonclock
++ I Exec exec pkill wmsun
++ I Exec exec pkill xplanet
+
+
+# exiting
+DestroyFunc ExitFunction
+AddToFunc   ExitFunction
++ I Exec exec pkill xcompmgr
++ I Exec exec pkill xscreensaver
+
+AddToFunc StartFunction I Module FvwmEvent
+
+AddToFunc StartFunction I Test (Restart) All (Iconic) \
+  Test (f /dev/shm/icon.tmp.$[w.id].png) WindowStyle \
+  IconOverride, Icon /dev/shm/icon.tmp.$[w.id].png
+

@@ -1,0 +1,26 @@
+*MyDock: Columns          12
+*MyDock: Rows             2
+
+############## BUTTONS ################
+# FIRST ROW
+*MyDock: (Action (Mouse 1) `Exec exec xscreensaver-command -lock`) (Padding 2 2, 1x1, Swallow (NoClose, UseOld) "wmlife" 'Exec wmlife -g -4-4')
+*MyDock: (Action (Mouse 1) `Exec exec $filelight`) (Padding 2 2, 1x1, Swallow (NoClose, UseOld) "wmhdplop" 'Exec wmhdplop -d nvme0n1:ssd')
+*MyDock: (Action (Mouse 1) `Exec exec /usr/bin/gnome-system-monitor`) (Padding 2 2, 1x1, Swallow (UseOld) "wmfire" 'Exec wmfire -g -c')
+
+*MyDock: (Action (Mouse 1) `Exec exec $kcalc`) (Padding 2 2, 1x1, Swallow (UseOld) "xload" 'Exec xload -nolabel -fg "$[TerColor]" -bg "black" -hl "$[TerCompl]"')
+
+*MyDock: (Action (Mouse 1) `Exec exec $wireshark`) (Padding 2 2, 1x1, Swallow (NoClose, UseOld) "wmnet" 'Exec wmnet -l -W enp0s31f6 -t "$[TerLight]" -r "$[TerCompl]" -n  -l -x 100000000')
+*MyDock: (Action (Mouse 1) `Exec exec $fvwm_term_start`) (Padding 2 2, 1x1, Swallow (NoClose, UseOld) "wmsun" 'Exec wmsun')
+*MyDock: (Action (Mouse 1) `Exec exec xplanet`) (Padding 2 2, 1x1, Swallow (NoClose, UseOld) "xplanet" 'Exec xplanet -window -geometry 64x64 -longitude -80 -latitude 40')
+*MyDock: (Action (Mouse 1) `Exec exec clementine`) (Padding 1 1, Swallow (NoClose, UseOld) "wmmoonclock" "Exec wmmoonclock")
+*MyDock: (Action (Mouse 1) `Exec exec $osmo`) (Padding 2 2, 1x1, Swallow (NoClose, UseOld) "wmclock" 'Exec wmclock -noblink -led "$[TerFont]" -year')
+*MyDock: (Padding 2 2, 2x2, Swallow (NoClose, UseOld) "xarclock" 'Exec xarclock -roman -geometry 128x128 -fg "$[TerFont]" -bg "$[TerDark]" -hd "$[TerCompl]" -hl "$[RootColor]" -bd red  -padding 2 -fn $[fvwm_times_font] -north')
+*MyDock: (Padding 0 0, 1x1, Frame 0, Swallow (NoClose, UseOld) "stalonetray" 'Exec stalonetray ')
+
+#SECOND ROW
+  #ICONMAN
+*MyDock: (Padding 0 0, 5x1, Frame 0, Swallow "FvwmIconMan" "Module FvwmIconMan")
+  #PAGER
+*MyDock: (Padding 0 0, 4x1, Frame 1, Swallow "FvwmPager" 'FvwmPager 1 0')
+#*MyDock: (Padding 0 0, 1x1, Frame 0, Swallow (NoClose, UseOld) "wmckgmail" 'Exec wmckgmail ')
+

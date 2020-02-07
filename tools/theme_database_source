@@ -1,0 +1,602 @@
+# Theme descriptor file. 
+# - Two colors miminum, codes can be included in the color, see it's python file for information
+# - @Menu name, the @ symbol is used to start a menu entry
+# - Then a list of colors would follow, a color must be in the format (#RRGGBBAA) and the code can preceed the # symbol
+# - The tool will try to match an image file which will be searched and an icon file will be created for the menu entry
+#   if the file is not found an icon file will be created (by another tool) based on the colors.
+# - For some themes you may want to group the icon file for several color configurations, that is one icon to a set of
+#   colors, for that add an entry, something like 'vintagebluepat -nop' this will cause the theme menu to show an icon file
+#   which hopefully can be found in textures, and then several entries of the form
+#   vintagebluepat (#a08040FF) (#c08060FF) (#c0a060FF) (#a06040FF) -skip
+#   notice that it ends with -skip, this instructs the tool, not to look for an image file and instead create an icon based
+#   on the listed colors
+# - The tool will create a json file with the information from this file, it will also create a .txt file that contains a 
+#   theme index and name, also the menu names to group them.
+# Empty line terminates processing.
+@Main
+KG (#9c7500FF) (#775500FF) (#cca500FF) (#886622FF) (#000020FF) (#000000FF)
+Ultra Violet (#5F4B8BFF) and Blooming Dahlia (#E69A8DFF)
+Cherry Tomato (#ED2B33FF) and Rapture Rose (#D85A7FFF)
+Forest Green (#2C5F2DFF) and Moss Green (#97BC62FF)
+Mango Mojito (#DAA03DFF) and Terrarium Moss (#616247FF)
+Aspen Gold (#FFD662FF) and Princess Blue (#00539CFF)
+Mellow Yellow (#FFE77AFF) and Verdant Green (#2C5F2DFF)
+Inca Gold (#BD7F37FF) and Scarlet Sage (#A13941FF)
+Living Coral (#FC766AFF), Storm Gray (#B0B8B4FF) and Forest Biome (#184A45FF)
+Radiant Yellow (#F9A12EFF), Living Coral (#FC766AFF) and Purple (#9B4A97FF)
+Danger Red (#D9514EFF), Tap Shoe (#2A2B2DFF) and Blue Blossom (#2DA8D8FF)
+Dark Green (#0A5E2AFF), Light Green (#6DAC4FFF), Star White (#EFEFE8FF) and Red (#FE0000FF)
+Beach Towels (#fe4a49FF) (#2ab7caFF) (#fed766FF) (#e6e6eaFF) (#f4f4f8FF)
+Moonlight Bytes 2 (#4a4e4dFF) (#0e9aa7FF) (#3da4abFF) (#fe8a71FF) (#f6cd61FF)
+Cappuccino (#4b3832FF) (#854442FF) (#fff4e6FF) (#3c2f2fFF) (#be9b7bFF)
+Google Colors (#008744FF) (#0057e7FF) (#d62d20FF) (#ffa700FF) (#ffffffFF)
+Beach (#96ceb4FF) (#ffeeadFF) (#ff6f69FF) (#ffcc5cFF) (#88d8b0FF)
+Program Catalog (#edc951FF) (#eb6841FF) (#cc2a36FF) (#4f372dFF) (#00a0b0FF)
+@MainMix
+atlantisbluetile (#404c7bFF) (#202061FF) (#e0c0bfFF) (#20406eFF)
+indiahenna (#c0a080FF) (#e0a0a7FF) (#603539FF) (#c18088FF)
+flowerstropicalbeigeredgreen (#a6923dFF) (#406024FF) (#a83832FF) (#dd77bbFF)
+flowersbigleafbreenbrownpink (#8fc09cFF) (#cca075FF) (#182b23FF) (#e0c040FF)
+tropicaljungleyellow (#e0e080FF) (#206062FF) (#e06020FF) (#683d87FF)
+tropicalvintagepalm (#bfc07aFF) (#dba06bFF) (#c03519FF) (#4e6025FF)
+tropicalfloralsunny (#7ec1a0FF) (#a59e41FF) (#e06020FF) (#204040FF)
+hawaiiflowercoloryl (#e0c000FF) (#a18005FF) (#e02020FF) (#e0e08eFF)
+hibiscusflowerhotpinkgreen (#cc9584FF) (#608040FF) (#9a2341FF) (#80c0a0FF)
+hibiscusbluered (#3fa0bdFF) (#00205dFF) (#006080FF) (#557c99FF)
+hibiscuswhitedarkbg (#40807fFF) (#a59176FF) (#d64060FF) (#206060FF)
+hibiscusbluepinkgreenleaf (#c0e0c1FF) (#5f806bFF) (#dd8e8cFF) (#cac2b4FF)
+leavesbiggreendarkpinkbg (#a8a99fFF) (#606069FF) (#e0c0c0FF) (#20293eFF)
+palmleavesbluebeigebg (#bacacbFF) (#40809fFF) (#e0d4cbFF) (#20203bFF)
+bananaleafgreen (#bfc07fFF) (#8c9177FF) (#e0c0b8FF) (#61402fFF)
+hibiscuswhiteredbg (#ad7f7fFF) (#a00020FF) (#c00001FF) (#e0e0c0FF)
+hibiscuspinkgreenleaveswhiteflowerspinkbg (#e0c0adFF) (#608040FF) (#e09282FF) (#204a1eFF)
+hibiscusscarletwhitegreengray (#e0a089FF) (#c0605fFF) (#60a080FF) (#dfd0a2FF)
+hibiscusleavesorangegreenwhtbg (#d4b17bFF) (#99a482FF) (#c72f33FF) (#c0e0e0FF)
+hibiscusredgreenleafpinkbg (#dba07dFF) (#5f8063FF) (#d64060FF) (#206040FF)
+biznaga (#836031FF) (#404026FF) (#ada46dFF) (#204011FF)
+sahuarosunset (#df9f38FF) (#946040FF) (#c0a060FF) (#a0a060FF)
+sahuaro_mountain (#d3a040FF) (#80401dFF) (#a0a05fFF) (#604020FF)
+yoshua_tree (#894010FF) (#7d6033FF) (#c88317FF) (#b1600bFF)
+greenforest (#838056FF) (#80603eFF) (#c2c0b0FF) (#604021FF)
+bmw8seriescoupe (#9bb999FF) (#66806dFF) (#308477FF) (#204043FF)
+porsche718 (#a26017FF) (#82400cFF) (#c9b161FF) (#412013FF)
+beachcartoon (#82a0cdFF) (#e0c01bFF) (#d6e0c5FF) (#723601FF)
+beachlakestones (#b5cbc8FF) (#867f59FF) (#a0c4c8FF) (#80741fFF)
+abstractferns (#bfca90FF) (#958041FF) (#206041FF) (#4f1a13FF)
+abstractgreenflowers (#88a09aFF) (#3f6061FF) (#406031FF) (#1f3f3cFF)
+abstracthexagonscolors (#e0c080FF) (#61a0bdFF) (#c08041FF) (#80c0a0FF)
+abstractscenepinkgreenblue (#a0805aFF) (#c0a040FF) (#c7605eFF) (#e0a080FF)
+woodvertical (#a08060FF) (#808040FF) (#aba26eFF) (#a08040FF)
+@Set2
+Purple (#440099FF)
+Black (#111111FF)
+White (#FFFFFFFF)
+Gray (#666666FF)
+LightGray (#999999FF)
+DarkGray (#333333FF)
+Ultra Violet (#5F4B8BFF) and Blooming Dahlia (#E69A8DFF)
+Turquoise (#42EADDFF) and Warm Sand (#CDB599FF)
+Black (#222222FF) and White (#FFFFFFFF)
+Blue (#00A4CCFF) and Orange (#F95700FF)
+Sailor Blue (#00203FFF) and Mint (#ADEFD1FF)
+Gray (#606060FF) and Lime Punch (#D6ED17FF)
+Cherry Tomato (#ED2B33FF) and Rapture Rose (#D85A7FFF)
+Forest Green (#2C5F2DFF) and Moss Green (#97BC62FF)
+Royal Blue (#00539CFF) and Peach (#EEA47FFF)
+Electric Blue Lemonade (#0063B2FF) and Aquamarine (#9CC3D5FF)
+Pink (#D198C5FF) and Cream Gold (#E0C568FF)
+Black (#101820FF) and Blazing Yellow (#FEE715FF)
+Pale Green (#CBCE91FF) and Bubblegum Pink (#EA738DFF)
+Copper Coin (#B1624EFF) and Aged Copper (#5CC8D7FF)
+Sky Blue (#89ABE3FF) and White (#FCF6F5FF)
+Dusky Citron (#E3CD81FF) and Cool Gray (#B1B3B3FF)
+Black (#101820FF) and Orange (#F2AA4CFF)
+Brown Sugar (#A07855FF) and Beige (#D4B996FF)
+Turkish Sea (#195190FF) and Silver (#A2A2A1FF)
+Royal Purple (#603F83FF) and Ice Flow (#C7D3D4FF)
+Island Green (#2BAE66FF) and White (#FCF6F5FF)
+Pink Salt (#FAD0C9FF) and Charcoal Gray (#6E6E6DFF)
+Black (#2D2926FF) and Cherry Tomato (#E94B3CFF)
+Mango Mojito (#DAA03DFF) and Terrarium Moss (#616247FF)
+Space Cherry (#990011FF) and White (#FCF6F5FF)
+Hunter Green (#435E55FF) and Raspberry (#D64161FF)
+Pale Green (#CBCE91FF) and Purple Sapphire (#76528BFF)
+Pink (#FAEBEFFF) and Navy Blue (#333D79FF)
+Bright Red (#F93822FF) and Cyber Yellow (#FDD20EFF)
+Sweet Corn (#F2EDD7FF) and Toffee (#755139FF)
+Dark Green (#006B38FF) and Black (#101820FF)
+Orange (#F95700FF) and White (#FFFFFFFF)
+Aspen Gold (#FFD662FF) and Princess Blue (#00539CFF)
+Soybean (#D7C49EFF) and Eclipse (#343148FF)
+Cantaloupe (#FFA177FF) and Blush (#F5C7B8FF)
+Rose Pink (#DF6589FF) and Purple (#3C1053FF)
+Mellow Yellow (#FFE77AFF) and Verdant Green (#2C5F2DFF)
+Fiesta (#DD4132FF) and Jester Red (#9E1030FF)
+Powdered Sugar (#F1F4FFFF) and Silver (#A2A2A1FF)
+Lemon Tonic (#FCF951FF) and Purple (#422057FF)
+Teal (#4B878BFF) and Fiery Red (#D01C1FFF)
+Nebulosity (#1C1C1BFF) and Pink Yarrow (#CE4A7EFF)
+Blue Atoll (#00B1D2FF) and Vibrant Yellow (#FDDB27FF)
+Lime Green (#79C000FF) and Orange (#FF7F41FF)
+Inca Gold (#BD7F37FF) and Scarlet Sage (#A13941FF)
+Pale Lilac (#E3C9CEFF) and Lime Green (#9FC131FF)
+Dark Blue (#00239CFF) and Red (#E10600FF)
+@Artistic
+Living Coral (#FC766AFF), Storm Gray (#B0B8B4FF) and Forest Biome (#184A45FF)
+Blazing Orange (#FFA351FF), Buff Orange (#FFBE7BFF) and Yellow Cream (#EED971FF)
+Sagebrush Green (#567572FF), Marsala (#964F4CFF) and Granite Gray (#696667FF)
+Red (#DA291CFF), Norse Blue (#56A8CBFF) and Light Green (#53A567FF)
+Light Purple (#D7A9E3FF), Light Blue (#8BBEE8FF) and Light Green (#A8D5BAFF)
+Grass Green (#7DB46CFF), Lightest Sky (#E7EBE0FF) and Clearwater (#ABD6DFFF)
+Radiant Yellow (#F9A12EFF), Living Coral (#FC766AFF) and Purple (#9B4A97FF)
+Warm Gray (#A59C94FF), Crimson (#AE0E36FF) and Raspberry (#D32E5EFF)
+White (#FCF6F5FF), Pink Lady (#EDC2D8FF) and Sky Blue (#8ABAD3FF)
+Living Coral (#FC766AFF), Spiced Apple (#783937FF) and Peach (#F1AC88FF)
+Lemon Verbena (#F6EA7BFF), Orange Pop (#FFBA52FF) and Aurora Pink (#E683A9FF)
+Red (#F65058FF), Yellow (#FBDE44FF) and Navy (#28334AFF)
+Tanager Turquoise (#95DBE5FF), Teal Blue (#078282FF) and Kelly Green (#339E66FF)
+Windsor Wine (#643E46FF), Scarlet (#BA0020FF) and Bright Red (#EE2737FF)
+Knockout Pink (#FF3EA5FF), Safety Yellow (#EDFF00FF) and Out of the Blue (#00A4CCFF)
+Puffin's Bill (#E95C20FF), Green (#006747FF) and Brown (#4F2C1DFF)
+Danger Red (#D9514EFF), Tap Shoe (#2A2B2DFF) and Blue Blossom (#2DA8D8FF)
+Bright Violet (#963CBDFF), Living Coral (#FF6F61FF), Vibrant Pink (#C5299BFF) and Marigold (#FEAE51FF)
+White (#FCF6F5FF), Vanilla Custard (#F0E1B9FF), Goldfinch (#F3DB74FF) and Scarlet Sage (#A13941FF)
+Deep Blue (#2460A7FF), Northern Sky (#85B3D1FF), Baby Blue (#B3C7D6FF) and Coffee (#D9B48FFF)
+Habañero Gold (#FFD653FF), Dijon (#DDB65DFF), Honey (#EEB238FF) and Chestnut (#6E4C1EFF)
+Delphinium Blue (#669DB3FF), White (#F0F6F7FF), Atmosphere (#A89C94FF) and Fiery Coral (#FF4F58FF)
+Dark Green (#0A5E2AFF), Light Green (#6DAC4FFF), Star White (#EFEFE8FF) and Red (#FE0000FF)
+Soft Pink (#FFDDE2FF), Peach Amber (#FAA094FF), Yucca (#9ED9CCFF) and Arbor Green (#008C76FF)
+White (#F1F3FFFF), Light Pink (#F7CED7FF), Pink (#F99FC9FF) and Dark Pink (#EF6079FF)
+Blue Sky (#ABD1C9FF), Elation (#DFDCE5FF), Nugget (#DBB04AFF) and Celestial (#97B3D0FF)
+Purple (#93385FFF), Lilac (#9F6B99FF), Petunia (#4F3466FF) and Aubergine Gleam (#301728FF)
+@Set
+Beach Towels (#fe4a49FF) (#2ab7caFF) (#fed766FF) (#e6e6eaFF) (#f4f4f8FF)
+Light Pink (#eee3e7FF) (#ead5dcFF) (#eec9d2FF) (#f4b6c2FF) (#f6abb6FF)
+Beautiful Blues (#011f4bFF) (#03396cFF) (#005b96FF) (#6497b1FF) (#b3cde0FF)
+So Many Lost Songs (#051e3eFF) (#251e3eFF) (#451e3eFF) (#651e3eFF) (#851e3eFF)
+She (#dec3c3FF) (#e7d3d3FF) (#f0e4e4FF) (#f9f4f4FF) (#ffffffFF)
+Moonlight Bytes 6 (#4a4e4dFF) (#0e9aa7FF) (#3da4abFF) (#f6cd61FF) (#fe8a71FF)
+Number 3 (#2a4d69FF) (#4b86b4FF) (#adcbe3FF) (#e7eff6FF) (#63ace5FF)
+Pastellea (#fe9c8fFF) (#feb2a8FF) (#fec8c1FF) (#fad9c1FF) (#f9caa7FF)
+Android Lollipop (#009688FF) (#35a79cFF) (#54b2a9FF) (#65c3baFF) (#83d0c9FF)
+Rainbow Dash (#ee4035FF) (#f37736FF) (#fdf498FF) (#7bc043FF) (#0392cfFF)
+Shades of White (#faf0e6FF) (#fff5eeFF) (#fdf5e6FF) (#faf0e6FF) (#faebd7FF)
+Blueberry Basket (#ffffffFF) (#d0e1f9FF) (#4d648dFF) (#283655FF) (#1e1f26FF)
+Five Shades of Grey (#eeeeeeFF) (#ddddddFF) (#ccccccFF) (#bbbbbbFF) (#aaaaaaFF)
+Anime Skin Tones (#ffe9dcFF) (#fce9dbFF) (#e0a899FF) (#dfa290FF) (#c99789FF)
+Beach (#96ceb4FF) (#ffeeadFF) (#ff6f69FF) (#ffcc5cFF) (#88d8b0FF)
+Blue Grey (#6e7f80FF) (#536872FF) (#708090FF) (#536878FF) (#36454fFF)
+Cappuccino (#4b3832FF) (#854442FF) (#fff4e6FF) (#3c2f2fFF) (#be9b7bFF)
+Facebook (#3b5998FF) (#8b9dc3FF) (#dfe3eeFF) (#f7f7f7FF) (#ffffffFF)
+Google Colors (#008744FF) (#0057e7FF) (#d62d20FF) (#ffa700FF) (#ffffffFF)
+Gray Blue (#3385c6FF) (#4279a3FF) (#476c8aFF) (#49657bFF) (#7f8e9eFF)
+Grey Lavender Colors (#d2d4dcFF) (#afafafFF) (#f8f8faFF) (#e5e6ebFF) (#c0c2ceFF)
+Pastel Rainbow (#a8e6cfFF) (#dcedc1FF) (#ffd3b6FF) (#ffaaa5FF) (#ff8b94FF)
+Metro UI Colors (#d11141FF) (#00b159FF) (#00aedbFF) (#f37735FF) (#ffc425FF)
+Greyso (#6f7c85FF) (#75838dFF) (#7e8d98FF) (#8595a1FF) (#8c9da9FF)
+The Water Bearer (#ebf4f6FF) (#bdeaeeFF) (#76b4bdFF) (#58668bFF) (#5e5656FF)
+Pinks (#ff77aaFF) (#ff99ccFF) (#ffbbeeFF) (#ff5588FF) (#ff3377FF)
+Never Doubt (#eeeeeeFF) (#ddddddFF) (#ccccccFF) (#bbbbbbFF) (#29a8abFF)
+Never Dreamed Of This (#fff6e9FF) (#ffefd7FF) (#fffef9FF) (#e3f0ffFF) (#d2e7ffFF)
+Program Catalog (#edc951FF) (#eb6841FF) (#cc2a36FF) (#4f372dFF) (#00a0b0FF)
+Office Room 2 (#84c1ffFF) (#add6ffFF) (#d6eaffFF) (#eaf4ffFF) (#f8fbffFF)
+Purple Skyline (#2e003eFF) (#3d2352FF) (#3d1e6dFF) (#8874a3FF) (#e4dcf1FF)
+Skin Tones (#8d5524FF) (#c68642FF) (#e0ac69FF) (#f1c27dFF) (#ffdbacFF)
+Space Gray (#343d46FF) (#4f5b66FF) (#65737eFF) (#a7adbaFF) (#c0c5ceFF)
+The Armor Falls (#bfd6f6FF) (#8dbdffFF) (#64a1f4FF) (#4a91f2FF) (#3b7dd8FF)
+Wrist Skin (#e3c9c9FF) (#f4e7e7FF) (#eedbdbFF) (#cecbcbFF) (#cbdadbFF)
+@Web
+Pink (#FFC0CBFF)
+LightPink (#FFB6C1FF)
+HotPink (#FF69B4FF)
+DeepPink (#FF1493FF)
+PaleVioletRed (#DB7093FF)
+MediumVioletRed (#C71585FF)
+LightSalmon (#FFA07AFF)
+Salmon (#FA8072FF)
+DarkSalmon (#E9967AFF)
+LightCoral (#F08080FF)
+IndianRed (#CD5C5CFF)
+Crimson (#DC143CFF)
+Firebrick (#B22222FF)
+DarkRed (#8B0000FF)
+Red (#FF0000FF)
+OrangeRed (#FF4500FF)
+Tomato (#FF6347FF)
+Coral (#FF7F50FF)
+DarkOrange (#FF8C00FF)
+Orange (#FFA500FF)
+Yellow (#FFFF00FF)
+LightYellow (#FFFFE0FF)
+LemonChiffon (#FFFACDFF)
+LightGoldenrodYellow (#FAFAD2FF)
+PapayaWhip (#FFEFD5FF)
+Moccasin (#FFE4B5FF)
+PeachPuff (#FFDAB9FF)
+PaleGoldenrod (#EEE8AAFF)
+Khaki (#F0E68CFF)
+DarkKhaki (#BDB76BFF)
+Gold (#FFD700FF)
+Cornsilk (#FFF8DCFF)
+BlanchedAlmond (#FFEBCDFF)
+Bisque (#FFE4C4FF)
+NavajoWhite (#FFDEADFF)
+Wheat (#F5DEB3FF)
+Burlywood (#DEB887FF)
+Tan (#D2B48CFF)
+RosyBrown (#BC8F8FFF)
+SandyBrown (#F4A460FF)
+Goldenrod (#DAA520FF)
+DarkGoldenrod (#B8860BFF)
+Peru (#CD853FFF)
+Chocolate (#D2691EFF)
+SaddleBrown (#8B4513FF)
+Sienna (#A0522DFF)
+Brown (#A52A2AFF)
+Maroon (#800000FF)
+DarkOliveGreen (#556B2FFF)
+Olive (#808000FF)
+OliveDrab (#6B8E23FF)
+YellowGreen (#9ACD32FF)
+LimeGreen (#32CD32FF)
+Lime (#00FF00FF)
+LawnGreen (#7CFC00FF)
+Chartreuse (#7FFF00FF)
+GreenYellow (#ADFF2FFF)
+SpringGreen (#00FF7FFF)
+MediumSpringGreen (#00FA9AFF)
+LightGreen (#90EE90FF)
+PaleGreen (#98FB98FF)
+DarkSeaGreen (#8FBC8FFF)
+MediumAquamarine (#66CDAAFF)
+MediumSeaGreen (#3CB371FF)
+SeaGreen (#2E8B57FF)
+ForestGreen (#228B22FF)
+Green (#008000FF)
+DarkGreen (#006400FF)
+Aqua (#00FFFFFF)
+Cyan (#00FFFFFF)
+LightCyan (#E0FFFFFF)
+PaleTurquoise (#AFEEEEFF)
+Aquamarine (#7FFFD4FF)
+Turquoise (#40E0D0FF)
+MediumTurquoise (#48D1CCFF)
+DarkTurquoise (#00CED1FF)
+LightSeaGreen (#20B2AAFF)
+CadetBlue (#5F9EA0FF)
+DarkCyan (#008B8BFF)
+Teal (#008080FF)
+LightSteelBlue (#B0C4DEFF)
+PowderBlue (#B0E0E6FF)
+LightBlue (#ADD8E6FF)
+SkyBlue (#87CEEBFF)
+LightSkyBlue (#87CEFAFF)
+DeepSkyBlue (#00BFFFFF)
+DodgerBlue (#1E90FFFF)
+CornflowerBlue (#6495EDFF)
+SteelBlue (#4682B4FF)
+RoyalBlue (#4169E1FF)
+Blue (#0000FFFF)
+MediumBlue (#0000CDFF)
+DarkBlue (#00008BFF)
+Navy (#000080FF)
+MidnightBlue (#191970FF)
+Lavender (#E6E6FAFF)
+Thistle (#D8BFD8FF)
+Plum (#DDA0DDFF)
+Violet (#EE82EEFF)
+Orchid (#DA70D6FF)
+Fuchsia (#FF00FFFF)
+Magenta (#FF00FFFF)
+MediumOrchid (#BA55D3FF)
+MediumPurple (#9370DBFF)
+BlueViolet (#8A2BE2FF)
+DarkViolet (#9400D3FF)
+DarkOrchid (#9932CCFF)
+DarkMagenta (#8B008BFF)
+Purple (#800080FF)
+Indigo (#4B0082FF)
+DarkSlateBlue (#483D8BFF)
+SlateBlue (#6A5ACDFF)
+MediumSlateBlue (#7B68EEFF)
+White (#FFFFFFFF)
+Snow (#FFFAFAFF)
+Honeydew (#F0FFF0FF)
+MintCream (#F5FFFAFF)
+Azure (#F0FFFFFF)
+AliceBlue (#F0F8FFFF)
+GhostWhite (#F8F8FFFF)
+WhiteSmoke (#F5F5F5FF)
+Seashell (#FFF5EEFF)
+Beige (#F5F5DCFF)
+OldLace (#FDF5E6FF)
+FloralWhite (#FFFAF0FF)
+Ivory (#FFFFF0FF)
+AntiqueWhite (#FAEBD7FF)
+Linen (#FAF0E6FF)
+LavenderBlush (#FFF0F5FF)
+MistyRose (#FFE4E1FF)
+Gainsboro (#DCDCDCFF)
+LightGray (#D3D3D3FF)
+Silver (#C0C0C0FF)
+DarkGray (#A9A9A9FF)
+Gray (#808080FF)
+DimGray (#696969FF)
+LightSlateGray (#778899FF)
+SlateGray (#708090FF)
+DarkSlateGray (#2F4F4FFF)
+@Patterns
+geograypat -nop
+geograypat (#e0e0c0FF) (#c0e0c0FF) (#c0a080FF) (#c4c0b4FF) -skip
+geograypat (#c0a0c0FF) (#c0a0a0FF) (#a0a09aFF) (#8c807eFF) -skip
+geograypat (#dfe0bfFF) (#342d2fFF) (#a0a09aFF) (#c4c0b4FF) -skip
+geograypat (#806063FF) (#bf9fa0FF) (#603f42FF) (#c3bfb3FF) -skip
+baroqred -nop
+baroqred (#800020FF) (#995455FF) (#b28078FF) (#7f2027FF) -skip
+baroqred (#c8c09fFF) (#e0a09eFF) (#60001bFF) (#800000FF) -skip
+baroqred (#b27f77FF) (#80001fFF) (#995455FF) (#7f2027FF) -skip
+baroqred (#c8bf9fFF) (#7f1f26FF) (#a00020FF) (#c0a0a0FF) -skip
+indiahenna -nop
+indiahenna (#853b45FF) (#e0e0c0FF) (#e0c0e0FF) (#e0c0a0FF) -skip
+indiahenna (#c0a080FF) (#e0a0a7FF) (#603539FF) (#c18088FF) -skip
+indiahenna (#853b44FF) (#e0c5c1FF) (#bf9f9fFF) (#e0c0a0FF) -skip
+indiahenna (#7d605eFF) (#a26067FF) (#603539FF) (#c17f88FF) -skip
+indiapinkblue -nop
+indiapinkblue (#ac496cFF) (#d6ccb1FF) (#0f2069FF) (#ca807dFF) -skip
+indiapinkblue (#1f4773FF) (#4a8091FF) (#90c4a9FF) (#32a0a1FF) -skip
+indiapinkblue (#d07f91FF) (#6c537dFF) (#0f1f69FF) (#ca807dFF) -skip
+indiapinkblue (#ac496cFF) (#4a8091FF) (#a89396FF) (#90c4a9FF) -skip
+indiapink -nop
+indiapink (#88c0aaFF) (#d96d58FF) (#cfc0a0FF) (#c0e0c7FF) -skip
+indiapink (#e0e0a0FF) (#c9a099FF) (#d33d3dFF) (#e0c0c0FF) -skip
+indiapink (#805f73FF) (#c0c0c0FF) (#d23c3dFF) (#c0e0c7FF) -skip
+indiapink (#544651FF) (#e0c0c0FF) (#dbdfc1FF) (#d96d58FF) -skip
+indiapurplebeigepat2 -nop
+indiapurplebeigepat2 (#e0e0c0FF) (#000060FF) (#e0c0beFF) (#00204eFF) -skip
+indiapurplebeigepat2 (#e0e0a0FF) (#c0e0bfFF) (#000080FF) (#e0e0e0FF) -skip
+indiapurplebeigepat2 (#bfc0b5FF) (#3f4367FF) (#9f9da0FF) (#00204eFF) -skip
+indiapurplebeigepat2 (#000060FF) (#7b838cFF) (#e0c0bdFF) (#00204dFF) -skip
+@Tiles
+woodvertical -nop
+woodvertical (#a08060FF) (#808040FF) (#a08040FF) (#aba26eFF) -skip
+woodvertical (#806020FF) (#a06040FF) (#c08060FF) (#606020FF) -skip
+woodvertical (#a07e3fFF) (#5f603fFF) (#2b1b09FF) (#aba26eFF) -skip
+woodvertical (#a08060FF) (#807f3fFF) (#807f60FF) (#7f6060FF) -skip
+bricknatural -nop
+bricknatural (#a08060FF) (#a06040FF) (#833f38FF) (#cdc1a8FF) -skip
+bricknatural (#c0a080FF) (#c08074FF) (#e0a09eFF) (#c0605fFF) -skip
+bricknatural (#7f5f4aFF) (#c09f9fFF) (#9e8060FF) (#cdc1a8FF) -skip
+bricknatural (#59372aFF) (#9f603fFF) (#823e37FF) (#bf7f74FF) -skip
+bricktan -nop
+bricktan (#c0a08dFF) (#cec1a8FF) (#a0605eFF) (#a08040FF) -skip
+bricktan (#e0a0a0FF) (#806020FF) (#c0807dFF) (#623f29FF) -skip
+bricktan (#845f5fFF) (#c09f8dFF) (#613e28FF) (#a08040FF) -skip
+bricktan (#7f603fFF) (#a07f7fFF) (#cdc1a7FF) (#a0a07fFF) -skip
+rocktilebluebig -nop
+rocktilebluebig (#2b404dFF) (#408080FF) (#206060FF) (#60a0a0FF) -skip
+rocktilebluebig (#6080a0FF) (#406080FF) (#acc5c8FF) (#a0a0b3FF) -skip
+rocktilebluebig (#3f6180FF) (#7f7f97FF) (#2a404dFF) (#60a0a0FF) -skip
+rocktilebluebig (#0a121cFF) (#a09fb3FF) (#80a0a2FF) (#3f605fFF) -skip
+wood -nop
+wood (#a08040FF) (#c08060FF) (#c0a060FF) (#a06040FF) -skip
+wood (#806040FF) (#806020FF) (#804021FF) (#5f3f1eFF) -skip
+wood (#a05f40FF) (#bf805fFF) (#9f803fFF) (#a06040FF) -skip
+wood (#806040FF) (#c09f7fFF) (#7f5f20FF) (#7f4020FF) -skip
+woodplanks1 -nop
+woodplanks1 (#a06020FF) (#a06040FF) (#a26000FF) (#c06026FF) -skip
+woodplanks1 (#caa166FF) (#a06060FF) (#e08060FF) (#c08000FF) -skip
+drywood1 -nop
+drywood1 (#a08060FF) (#40201eFF) (#806040FF) (#c0a080FF) -skip
+drywood1 (#c1c0a0FF) (#c0a0a0FF) (#a0a0a0FF) (#a0a080FF) -skip
+aqua_tile -nop
+aqua_tile (#80c0a0FF) (#00a081FF) (#40a080FF) (#80c0c0FF) -skip
+aqua_tile (#60c0a9FF) (#108080FF) (#40c0a0FF) (#438080FF) -skip
+aqua_tile (#80bf9fFF) (#009f81FF) (#639f9cFF) (#80c0c0FF) -skip
+aqua_tile (#409d80FF) (#a0bfabFF) (#7fc0c0FF) (#60bfa8FF) -skip
+tilesgraytan -nop
+tilesgraytan (#4c372dFF) (#e0c0bfFF) (#dee0c9FF) (#c0c080FF) -skip
+tilesgraytan (#c0c0c0FF) (#c0c0a0FF) (#a0c0afFF) (#c0a0a0FF) -skip
+tilesgraytan (#1c0000FF) (#605f4aFF) (#c0c0bfFF) (#c0c080FF) -skip
+tilesgraytan (#4c372cFF) (#a29f7fFF) (#c0c09fFF) (#c09f9fFF) -skip
+atlantisbluetile -nop
+atlantisbluetile (#404c7bFF) (#202061FF) (#20406eFF) (#e0c0bfFF) -skip
+atlantisbluetile (#e0e0c0FF) (#000056FF) (#c0e0caFF) (#002060FF) -skip
+atlantisbluetile (#777f99FF) (#001a5eFF) (#a09fa5FF) (#e0c0bfFF) -skip
+atlantisbluetile (#bbc2c1FF) (#5f5e83FF) (#20406eFF) (#202061FF) -skip
+portbluetilelt -nop
+portbluetilelt (#204080FF) (#204060FF) (#e0e0c0FF) (#42407aFF) -skip
+portbluetilelt (#c0e0ddFF) (#e0c0c0FF) (#003574FF) (#202068FF) -skip
+portbluetilelt (#4b5a7cFF) (#a89faaFF) (#1f3f7fFF) (#42407aFF) -skip
+portbluetilelt (#bfc0c1FF) (#837e8eFF) (#a0bfc1FF) (#809fabFF) -skip
+portfrbluetile -nop
+portfrbluetile (#202080FF) (#494078FF) (#204080FF) (#c0e0e0FF) -skip
+portfrbluetile (#e0e0c0FF) (#202060FF) (#c2c0ccFF) (#c0a0a2FF) -skip
+portfrbluetile (#c2c0ccFF) (#20207fFF) (#807c9aFF) (#c0e0e0FF) -skip
+portfrbluetile (#a0686aFF) (#5b6490FF) (#494078FF) (#204080FF) -skip
+portgreentile -nop
+portgreentile (#204041FF) (#c0e0c5FF) (#80c0a0FF) (#e0c0c0FF) -skip
+portgreentile (#e0e0a0FF) (#e0e0e0FF) (#c0c0b8FF) (#a0c0c0FF) -skip
+portgreentile (#c0c0b7FF) (#1f4040FF) (#9f9f9aFF) (#e0c0c0FF) -skip
+portgreentile (#dfdfdfFF) (#9fc0a7FF) (#7b918aFF) (#bfe0c4FF) -skip
+romanesquetile -nop
+romanesquetile (#e0e0a0FF) (#ce2027FF) (#a06c48FF) (#d3c0a1FF) -skip
+romanesquetile (#c5c080FF) (#a03631FF) (#806541FF) (#c7403aFF) -skip
+romanesquetile (#c8b680FF) (#a03531FF) (#956945FF) (#d3c0a1FF) -skip
+romanesquetile (#ce1f26FF) (#d2c0a1FF) (#dedf9fFF) (#c76e5aFF) -skip
+@Floral
+floralcyanbrownhorz -nop
+floralcyanbrownhorz (#524028FF) (#6fc0bdFF) (#806049FF) (#e0e0a0FF) -skip
+floralcyanbrownhorz (#e0c0adFF) (#e0e0e0FF) (#c0c1a7FF) (#a9a088FF) -skip
+floralcyanbrownhorz (#56604dFF) (#c8c0a8FF) (#202012FF) (#e0e0a0FF) -skip
+floralcyanbrownhorz (#6ebfbdFF) (#a9a087FF) (#514028FF) (#5f816bFF) -skip
+floralgraygreentile -nop
+floralgraygreentile (#404020FF) (#e0c0c0FF) (#204031FF) (#c0e0c0FF) -skip
+floralgraygreentile (#e0e0e0FF) (#c0c0b1FF) (#c0a0a0FF) (#959186FF) -skip
+floralgraygreentile (#3f4040FF) (#000000FF) (#949085FF) (#c0e0c0FF) -skip
+floralgraygreentile (#64584fFF) (#404020FF) (#dfc0bfFF) (#261e1eFF) -skip
+floralmisticalblue -nop
+floralmisticalblue (#0080a0FF) (#bce0ddFF) (#0da1ccFF) (#006060FF) -skip
+floralmisticalblue (#38606bFF) (#008080FF) (#e0e0c0FF) (#0080c1FF) -skip
+floralmisticalblue (#bbe0ddFF) (#005f79FF) (#7ca1abFF) (#006060FF) -skip
+floralmisticalblue (#0793c7FF) (#328092FF) (#aebfc8FF) (#38606aFF) -skip
+floralpinkgreenpat -nop
+floralpinkgreenpat (#5ca086FF) (#c0c0e0FF) (#206c56FF) (#e0c0deFF) -skip
+floralpinkgreenpat (#e0a0c2FF) (#c0a0e0FF) (#d4e0e0FF) (#c0c0c0FF) -skip
+floralpinkgreenpat (#5ba085FF) (#d3dfdfFF) (#a0a0afFF) (#e0c0deFF) -skip
+floralpinkgreenpat (#507e6cFF) (#7fa0a4FF) (#cdbfdfFF) (#c0bfbfFF) -skip
+hawaiiflowercoloryl -nop
+hawaiiflowercoloryl (#e0c000FF) (#e02020FF) (#a18005FF) (#e0e08eFF) -skip
+hawaiiflowercoloryl (#df000fFF) (#e0c068FF) (#e0946eFF) (#e04f49FF) -skip
+hawaiiflowercoloryl (#9c7905FF) (#de000eFF) (#e0bf00FF) (#e0e08eFF) -skip
+hawaiiflowercoloryl (#e01f1fFF) (#e0e08eFF) (#df4e49FF) (#dfc068FF) -skip
+flowerstropicalbeigeredgreen -nop
+flowerstropicalbeigeredgreen (#404017FF) (#b79b77FF) (#cac387FF) (#93602dFF) -skip
+flowerstropicalbeigeredgreen (#a6923dFF) (#a6221bFF) (#406024FF) (#c0e0c0FF) -skip
+flowerstropicalbeigeredgreen (#b79b77FF) (#586026FF) (#3f4017FF) (#93602dFF) -skip
+flowerstropicalbeigeredgreen (#a5211aFF) (#cac286FF) (#935f2cFF) (#1f3305FF) -skip
+flowersbigleafbreenbrownpink -nop
+flowersbigleafbreenbrownpink (#e0c070FF) (#cca075FF) (#8fc09cFF) (#ab7549FF) -skip
+flowersbigleafbreenbrownpink (#60a0a0FF) (#e0c040FF) (#e0e0c8FF) (#40a07fFF) -skip
+flowersbigleafbreenbrownpink (#cca074FF) (#182b23FF) (#476f5aFF) (#ab7549FF) -skip
+flowersbigleafbreenbrownpink (#dfc03fFF) (#a0734cFF) (#dfe0c8FF) (#e0bf6fFF) -skip
+hibiscusflowerhotpinkgreen -nop
+hibiscusflowerhotpinkgreen (#80c0a0FF) (#608040FF) (#9a2341FF) (#cc9584FF) -skip
+hibiscusflowerhotpinkgreen (#b46069FF) (#20401aFF) (#60a074FF) (#408047FF) -skip
+hibiscusflowerhotpinkgreen (#80c09aFF) (#406027FF) (#b45f68FF) (#cc9584FF) -skip
+hibiscusflowerhotpinkgreen (#992240FF) (#5e7f3fFF) (#c5c8aaFF) (#cc9584FF) -skip
+hibiscusbluered -nop
+hibiscusbluered (#006080FF) (#00205dFF) (#3fa0bdFF) (#557c99FF) -skip
+hibiscusbluered (#b51e3dFF) (#0060a0FF) (#e0e0c0FF) (#006060FF) -skip
+hibiscusbluered (#036082FF) (#679fbbFF) (#00255eFF) (#557c99FF) -skip
+hibiscusbluered (#b51e3cFF) (#95c9d5FF) (#3f9fbcFF) (#557b98FF) -skip
+hibiscuswhitedarkbg -nop
+hibiscuswhitedarkbg (#e0e0c0FF) (#206060FF) (#e0e0a0FF) (#e0c091FF) -skip
+hibiscuswhitedarkbg (#40807fFF) (#006057FF) (#e0e0e0FF) (#bcc2a3FF) -skip
+hibiscuswhitedarkbg (#a59176FF) (#e0e0c1FF) (#1f5f5fFF) (#e0c091FF) -skip
+hibiscuswhitedarkbg (#2f2f2bFF) (#d9c094FF) (#3f807fFF) (#e0e09fFF) -skip
+hibiscusbluepinkgreenleaf -nop
+hibiscusbluepinkgreenleaf (#193626FF) (#e0e0c0FF) (#a0c0e0FF) (#8b5951FF) -skip
+hibiscusbluepinkgreenleaf (#c0e0c1FF) (#80c0bbFF) (#de8e8cFF) (#e0e0e0FF) -skip
+hibiscusbluepinkgreenleaf (#9f9d8aFF) (#3f4b3fFF) (#dfdfd8FF) (#8b5951FF) -skip
+hibiscusbluepinkgreenleaf (#dd8e8cFF) (#cac2b4FF) (#183526FF) (#5f806bFF) -skip
+hibiscuswhiteaquarella -nop
+hibiscuswhiteaquarella (#e0e0c0FF) (#ccc09bFF) (#366642FF) (#dee09fFF) -skip
+hibiscuswhiteaquarella (#dbc0c0FF) (#c1a047FF) (#e0a09fFF) (#c0e0c0FF) -skip
+hibiscuswhiteaquarella (#3b3026FF) (#dee09eFF) (#5f6e44FF) (#dee09fFF) -skip
+hibiscuswhiteaquarella (#dfddc4FF) (#00291bFF) (#cbc09aFF) (#356641FF) -skip
+tropicaljungleyellow -nop
+tropicaljungleyellow (#e0e080FF) (#206062FF) (#b19341FF) (#1f603cFF) -skip
+tropicaljungleyellow (#e0c065FF) (#e0e04fFF) (#203d4eFF) (#e0cb1fFF) -skip
+tropicaljungleyellow (#1e603cFF) (#e0df85FF) (#563755FF) (#1f603cFF) -skip
+tropicaljungleyellow (#1f5f62FF) (#143b4aFF) (#bec254FF) (#586f52FF) -skip
+tropicalvintagepalm -nop
+tropicalvintagepalm (#dba06bFF) (#bfc07aFF) (#e0c09bFF) (#4e6025FF) -skip
+tropicalvintagepalm (#e0e0c3FF) (#c0351aFF) (#493f09FF) (#98a060FF) -skip
+tropicalvintagepalm (#c03519FF) (#dfdfc2FF) (#5a8058FF) (#4e6025FF) -skip
+tropicalvintagepalm (#dfdb9fFF) (#bfbf79FF) (#bbc1b4FF) (#98a05fFF) -skip
+tropicalfloralsunny -nop
+tropicalfloralsunny (#204040FF) (#7ec1a0FF) (#a59e41FF) (#206040FF) -skip
+tropicalfloralsunny (#cec655FF) (#e06020FF) (#204061FF) (#806040FF) -skip
+tropicalfloralsunny (#7ec19fFF) (#1f3e3dFF) (#a59e41FF) (#206040FF) -skip
+tropicalfloralsunny (#61967bFF) (#795840FF) (#1e603fFF) (#e05f20FF) -skip
+palmleavesbluebeigebg -nop
+palmleavesbluebeigebg (#20607eFF) (#e0d4cbFF) (#204060FF) (#204080FF) -skip
+palmleavesbluebeigebg (#40809fFF) (#20203bFF) (#004055FF) (#002060FF) -skip
+palmleavesbluebeigebg (#1f4080FF) (#e0d3caFF) (#6987a0FF) (#204080FF) -skip
+palmleavesbluebeigebg (#21405dFF) (#bacacbFF) (#465f75FF) (#00171fFF) -skip
+leavesbiggreendarkpinkbg -nop
+leavesbiggreendarkpinkbg (#e0e0c4FF) (#e0c0a0FF) (#402042FF) (#20293eFF) -skip
+leavesbiggreendarkpinkbg (#404080FF) (#e0a0a0FF) (#e0c0e0FF) (#e0c0c0FF) -skip
+leavesbiggreendarkpinkbg (#a8a99fFF) (#606069FF) (#e0c0c0FF) (#20293eFF) -skip
+leavesbiggreendarkpinkbg (#5f7f7bFF) (#e0e0c3FF) (#e0bfa0FF) (#423b40FF) -skip
+bananaleafgreen -nop
+bananaleafgreen (#e0e0c0FF) (#e0c0b8FF) (#c0e0c0FF) (#61402fFF) -skip
+bananaleafgreen (#402020FF) (#c0c080FF) (#404020FF) (#e0e0e0FF) -skip
+bananaleafgreen (#bfc07fFF) (#dfdfe0FF) (#8c9177FF) (#61402fFF) -skip
+bananaleafgreen (#1f2e20FF) (#c0c0a1FF) (#403f20FF) (#dfdcbfFF) -skip
+hibiscuspinkgreenleaveswhiteflowerspinkbg -nop
+hibiscuspinkgreenleaveswhiteflowerspinkbg (#e0e0c0FF) (#e09282FF) (#608040FF) (#e0c0adFF) -skip
+hibiscuspinkgreenleaveswhiteflowerspinkbg (#204a1eFF) (#408055FF) (#975d4cFF) (#404020FF) -skip
+hibiscuspinkgreenleaveswhiteflowerspinkbg (#df9282FF) (#657c41FF) (#7c9670FF) (#e0c0adFF) -skip
+hibiscuspinkgreenleaveswhiteflowerspinkbg (#dfc0acFF) (#5c8061FF) (#3f6045FF) (#b9c0a5FF) -skip
+hibiscusscarletwhitegreengray -nop
+hibiscusscarletwhitegreengray (#dfd0a2FF) (#e0a089FF) (#c0605fFF) (#6f4050FF) -skip
+hibiscusscarletwhitegreengray (#60a080FF) (#a06060FF) (#a54055FF) (#b8a084FF) -skip
+hibiscusscarletwhitegreengray (#cb6060FF) (#dfd0a2FF) (#704e57FF) (#6f4050FF) -skip
+hibiscusscarletwhitegreengray (#cb7f7fFF) (#a2505aFF) (#a07f76FF) (#609f80FF) -skip
+hibiscusleavesorangegreenwhtbg -nop
+hibiscusleavesorangegreenwhtbg (#d7753cFF) (#c72f33FF) (#d7e0a8FF) (#c0e0e0FF) -skip
+hibiscusleavesorangegreenwhtbg (#d4b17bFF) (#426020FF) (#206031FF) (#99a482FF) -skip
+hibiscusleavesorangegreenwhtbg (#5c7651FF) (#d7743cFF) (#1f2922FF) (#c0e0e0FF) -skip
+hibiscusleavesorangegreenwhtbg (#3f5f42FF) (#c72f33FF) (#837f6cFF) (#d7e0a7FF) -skip
+hibiscusredgreenleafpinkbg -nop
+hibiscusredgreenleafpinkbg (#e06b70FF) (#d64060FF) (#dba07dFF) (#206040FF) -skip
+hibiscusredgreenleafpinkbg (#e0c0c0FF) (#bfc494FF) (#e0e0e0FF) (#bfc1c0FF) -skip
+hibiscusredgreenleafpinkbg (#446047FF) (#df6b6fFF) (#9fa09fFF) (#206040FF) -skip
+hibiscusredgreenleafpinkbg (#5f8063FF) (#d54060FF) (#8a907dFF) (#db9f7cFF) -skip
+hibiscuswhiteredbg -nop
+hibiscuswhiteredbg (#873c3dFF) (#800020FF) (#e0e0c0FF) (#a00020FF) -skip
+hibiscuswhiteredbg (#c00001FF) (#c0e0d5FF) (#600020FF) (#d9c0beFF) -skip
+hibiscuswhiteredbg (#600000FF) (#c19f9fFF) (#a00000FF) (#a00020FF) -skip
+hibiscuswhiteredbg (#ad7f7fFF) (#7f0000FF) (#d9c0beFF) (#7f001fFF) -skip
+@Wallpapers
+abstractferns -nop
+abstractferns (#20402cFF) (#bfca90FF) (#494025FF) (#206041FF) -skip
+abstractferns (#4f1a13FF) (#202040FF) (#958041FF) (#9ea063FF) -skip
+abstractferns (#206040FF) (#beca8fFF) (#9da062FF) (#206041FF) -skip
+abstractferns (#53885fFF) (#1f402bFF) (#4a3620FF) (#948040FF) -skip
+abstracthexagonscolors -nop
+abstracthexagonscolors (#e0c080FF) (#61a0bdFF) (#c08041FF) (#80c0a0FF) -skip
+abstracthexagonscolors (#a1a061FF) (#9c453eFF) (#204031FF) (#202040FF) -skip
+abstracthexagonscolors (#dfc080FF) (#a07fa0FF) (#c07f41FF) (#80c0a0FF) -skip
+abstracthexagonscolors (#1f2020FF) (#9b453eFF) (#7fbfa0FF) (#a09f60FF) -skip
+abstractgreenflowers -nop
+abstractgreenflowers (#20403cFF) (#202040FF) (#404018FF) (#406031FF) -skip
+abstractgreenflowers (#406080FF) (#40201aFF) (#b2c1bcFF) (#88a09bFF) -skip
+abstractgreenflowers (#1f3f3cFF) (#88a09aFF) (#3f6061FF) (#406031FF) -skip
+abstractgreenflowers (#5f5f6cFF) (#3f3f4bFF) (#6b7f7fFF) (#00100fFF) -skip
+abstractscenepinkgreenblue -nop
+abstractscenepinkgreenblue (#806020FF) (#e0c0a0FF) (#e0a080FF) (#c7605eFF) -skip
+abstractscenepinkgreenblue (#a0805aFF) (#c78076FF) (#a06024FF) (#c0a040FF) -skip
+abstractscenepinkgreenblue (#c67f76FF) (#805f20FF) (#dfbc9fFF) (#c7605eFF) -skip
+abstractscenepinkgreenblue (#c3a03eFF) (#9f7f5aFF) (#c6605dFF) (#a05c23FF) -skip
+beachlakestones -nop
+beachlakestones (#60602cFF) (#3980b2FF) (#473d13FF) (#a0c4c8FF) -skip
+beachlakestones (#80801bFF) (#b8c28fFF) (#a48049FF) (#816027FF) -skip
+beachlakestones (#b5cbc8FF) (#867f59FF) (#010000FF) (#a0c4c8FF) -skip
+beachlakestones (#3a3918FF) (#a5a7a3FF) (#80741fFF) (#a5a06aFF) -skip
+yoshua_tree -nop
+yoshua_tree (#894010FF) (#612015FF) (#7d6033FF) (#402040FF) -skip
+yoshua_tree (#c88317FF) (#604000FF) (#604020FF) (#b1600cFF) -skip
+yoshua_tree (#000000FF) (#b1600bFF) (#603918FF) (#402040FF) -skip
+yoshua_tree (#200001FF) (#201f12FF) (#7d5f32FF) (#603f40FF) -skip
+sahuarosunset -nop
+sahuarosunset (#c0a060FF) (#a0a060FF) (#e0a060FF) (#e0c350FF) -skip
+sahuarosunset (#946040FF) (#20401fFF) (#6c3d24FF) (#402d23FF) -skip
+sahuarosunset (#df9f38FF) (#402c23FF) (#536054FF) (#e0c350FF) -skip
+sahuarosunset (#0a0000FF) (#7d7f60FF) (#6b3c24FF) (#936040FF) -skip
+sahuaro_mountain -nop
+sahuaro_mountain (#604020FF) (#dfc56cFF) (#cba060FF) (#42200dFF) -skip
+sahuaro_mountain (#d3a040FF) (#80401dFF) (#a0a05fFF) (#604000FF) -skip
+sahuaro_mountain (#673f1cFF) (#cd9f56FF) (#424039FF) (#42200dFF) -skip
+sahuaro_mountain (#a9844eFF) (#7f8060FF) (#dfc46cFF) (#41200dFF) -skip
+biznaga -nop
+biznaga (#404026FF) (#62402fFF) (#a18053FF) (#998018FF) -skip
+biznaga (#836031FF) (#412015FF) (#204011FF) (#406035FF) -skip
+biznaga (#2b2a17FF) (#988018FF) (#3f4025FF) (#998018FF) -skip
+biznaga (#ada46dFF) (#5b603fFF) (#1f1b00FF) (#000700FF) -skip
+bmw8seriescoupe -nop
+bmw8seriescoupe (#204043FF) (#346059FF) (#00605dFF) (#308477FF) -skip
+bmw8seriescoupe (#9bb999FF) (#66806dFF) (#40403cFF) (#004043FF) -skip
+SliTazFVWM -nop
+SliTazFVWM (#4080a0FF) (#9b4040FF) (#c19194FF) (#a3605eFF) -skip
+SliTazFVWM (#c0c0e0FF) (#e0c0c8FF) (#dfe0dfFF) (#c0c0c0FF) -skip
+porsche718 -nop
+porsche718 (#412013FF) (#a26017FF) (#c9b161FF) (#82400cFF) -skip
+porsche718 (#202040FF) (#806032FF) (#9e8057FF) (#604015FF) -skip
+greenforest -nop
+greenforest (#606030FF) (#80603eFF) (#406026FF) (#604021FF) -skip
+greenforest (#404022FF) (#c2c0b0FF) (#838056FF) (#404000FF) -skip
+beachcartoon -nop
+beachcartoon (#e0c01bFF) (#97c0d9FF) (#723601FF) (#207ad1FF) -skip
+beachcartoon (#82a0cdFF) (#d6e0c5FF) (#32a2c4FF) (#407cb2FF) -skip

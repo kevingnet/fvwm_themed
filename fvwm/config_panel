@@ -1,0 +1,12 @@
+*MyDock: Columns          12
+*MyDock: Rows             1
+
+############## BUTTONS ################
+#ICONMAN
+*MyDock: (Padding 0 0, 7x1, Frame 0, Swallow "FvwmIconMan" "Module FvwmIconMan")
+#PAGER
+*MyDock: (Padding 0 0, 4x1, Frame 1, Swallow "FvwmPager" 'FvwmPager 1 0')
+*MyDock: (Action (Mouse 1) `Exec exec $kcalc`) (Padding 2 2, 1x1, Swallow (UseOld) "xload" 'Exec xload -nolabel -fg "$[TerColor]" -bg "black" -hl "$[TerCompl]"')
+*MyDock: (Padding 2 2, 1x1, Swallow (NoClose, UseOld) "xclock" 'Exec xclock -geometry 64x64 -fg "$[TerFont]" -bg "$[TerDark]" -hd "$[TerCompl]" -hl "$[RootColor]"')
+*MyDock: (Padding 0 0, 1x1, Frame 0, Swallow (NoClose, UseOld) "stalonetray" 'Exec stalonetray ')
+

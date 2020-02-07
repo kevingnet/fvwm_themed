@@ -1,0 +1,185 @@
+# Automatically generated file. Do not edit (see /usr/share/doc/menu/html/index.html)
+
+DestroyMenu "/DebianWmIcons/Applications/Accessibility"
+AddToMenu "/DebianWmIcons/Applications/Accessibility" "Accessibility" Title
++ "&Xmag%menu/programs.xpm%" Exec    xmag
+
+DestroyMenu "/DebianWmIcons/Applications/Editors"
+AddToMenu "/DebianWmIcons/Applications/Editors" "Editors" Title
++ "&Xedit%menu/editor.xpm%" Exec    xedit
+
+DestroyMenu "/DebianWmIcons/Applications/Graphics"
+AddToMenu "/DebianWmIcons/Applications/Graphics" "Graphics" Title
++ "&dotty%menu/programs.xpm%" Exec    /usr/bin/dotty
++ "&lefty%menu/programs.xpm%" Exec    /usr/bin/lefty
++ "&X Window Snapshot%menu/programs.xpm%" Exec    xwd | xwud
+
+DestroyMenu "/DebianWmIcons/Applications/Network/Communication"
+AddToMenu "/DebianWmIcons/Applications/Network/Communication" "Communication" Title
++ "&Irssi%menu/programs.xpm%" Exec /usr/bin/X11/xterm -T "Irssi" -e /usr/bin/irssi
++ "&Telnet%menu/programs.xpm%" Exec /usr/bin/X11/xterm -T "Telnet" -e /usr/bin/telnet.netkit
++ "&Xbiff%menu/programs.xpm%" Exec    xbiff
+
+DestroyMenu "/DebianWmIcons/Applications/Network/Monitoring"
+AddToMenu "/DebianWmIcons/Applications/Network/Monitoring" "Monitoring" Title
++ "&wmnet%menu/programs.xpm%" Exec    /usr/bin/wmnet -l
+
+DestroyMenu "/DebianWmIcons/Applications/Network/Web_Browsing"
+AddToMenu "/DebianWmIcons/Applications/Network/Web_Browsing" "Web Browsing" Title
++ "&Google Chrome%menu/programs.xpm%" Exec    /opt/google/chrome/google-chrome
+
+DestroyMenu "/DebianWmIcons/Applications/Network"
+AddToMenu "/DebianWmIcons/Applications/Network" "Network" Title
++ "&Communication%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/Network/Communication"
++ "&Monitoring%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/Network/Monitoring"
++ "&Web Browsing%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/Network/Web_Browsing"
+
+DestroyMenu "/DebianWmIcons/Applications/Programming"
+AddToMenu "/DebianWmIcons/Applications/Programming" "Programming" Title
++ "&Data Display Debugger%menu/programs.xpm%" Exec    /usr/bin/ddd
++ "&GDB%menu/programs.xpm%" Exec /usr/bin/X11/xterm -T "GDB" -e /usr/bin/gdb
++ "&Tclsh8.6%menu/programs.xpm%" Exec /usr/bin/X11/xterm -T "Tclsh8.6" -e /usr/bin/tclsh8.6
++ "TkWish8.&6%menu/programs.xpm%" Exec    x-terminal-emulator -e /usr/bin/wish8.6
+
+DestroyMenu "/DebianWmIcons/Applications/Science/Astronomy"
+AddToMenu "/DebianWmIcons/Applications/Science/Astronomy" "Astronomy" Title
++ "&xplanet%menu/programs.xpm%" Exec    /usr/bin/xplanet
+
+DestroyMenu "/DebianWmIcons/Applications/Science/Geoscience"
+AddToMenu "/DebianWmIcons/Applications/Science/Geoscience" "Geoscience" Title
++ "&wmSun%menu/programs.xpm%" Exec    /usr/bin/wmsun
+
+DestroyMenu "/DebianWmIcons/Applications/Science/Mathematics"
+AddToMenu "/DebianWmIcons/Applications/Science/Mathematics" "Mathematics" Title
++ "&Bc%menu/programs.xpm%" Exec /usr/bin/X11/xterm -T "Bc" -e /usr/bin/bc
++ "&Xcalc%menu/programs.xpm%" Exec    xcalc
+
+DestroyMenu "/DebianWmIcons/Applications/Science"
+AddToMenu "/DebianWmIcons/Applications/Science" "Science" Title
++ "&Astronomy%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/Science/Astronomy"
++ "&Geoscience%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/Science/Geoscience"
++ "&Mathematics%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/Science/Mathematics"
+
+DestroyMenu "/DebianWmIcons/Applications/Shells"
+AddToMenu "/DebianWmIcons/Applications/Shells" "Shells" Title
++ "&Bash%menu/file.xpm%" Exec /usr/bin/X11/xterm -T "Bash" -e /bin/bash --login
++ "&Csh%menu/file.xpm%" Exec /usr/bin/X11/xterm -T "Csh" -e /bin/bsd-csh -l
++ "&Dash%menu/file.xpm%" Exec /usr/bin/X11/xterm -T "Dash" -e /bin/dash -i
++ "&fish%menu/file.xpm%" Exec /usr/bin/X11/xterm -T "fish" -e /usr/bin/fish
++ "&Sh%menu/file.xpm%" Exec /usr/bin/X11/xterm -T "Sh" -e /bin/sh --login
++ "&tcsh%menu/file.xpm%" Exec /usr/bin/X11/xterm -T "tcsh" -e /bin/tcsh
++ "&Zsh%menu/file.xpm%" Exec /usr/bin/X11/xterm -T "Zsh" -e /bin/zsh
+
+DestroyMenu "/DebianWmIcons/Applications/System/Administration"
+AddToMenu "/DebianWmIcons/Applications/System/Administration" "Administration" Title
++ "&Debian Task selector%menu/programs.xpm%" Exec /usr/bin/X11/xterm -T "Debian Task selector" -e su-to-root -c tasksel
++ "&Editres%menu/programs.xpm%" Exec    editres
++ "&GTK+ 2.0 Theme Switch%menu/programs.xpm%" Exec    /usr/bin/gtk-theme-switch2
++ "&Orphaner (all)%menu/programs.xpm%" Exec /usr/bin/X11/xterm -T "Orphaner (all)" -e su-to-root -c '/usr/sbin/orphaner -a'
++ "Or&phaner - editkeep%menu/programs.xpm%" Exec /usr/bin/X11/xterm -T "Orphaner - editkeep" -e su-to-root -c '/usr/sbin/editkeep'
++ "Orphaner (&libs)%menu/programs.xpm%" Exec /usr/bin/X11/xterm -T "Orphaner (libs)" -e su-to-root -c /usr/sbin/orphaner
++ "w&mcalclock%menu/programs.xpm%" Exec    /usr/bin/wmCalClock
++ "&Wmclock%menu/programs.xpm%" Exec    /usr/bin/wmclock
++ "&Xclipboard%menu/programs.xpm%" Exec    xclipboard
++ "Xfce &Application Finder%menu/programs.xpm%" Exec    xfce4-appfinder
++ "X&fontsel%menu/programs.xpm%" Exec    xfontsel
++ "X&kill%menu/programs.xpm%" Exec    xkill
++ "X&refresh%menu/programs.xpm%" Exec    xrefresh
+
+DestroyMenu "/DebianWmIcons/Applications/System/Hardware"
+AddToMenu "/DebianWmIcons/Applications/System/Hardware" "Hardware" Title
++ "&Xvidtune%menu/programs.xpm%" Exec    xvidtune
+
+DestroyMenu "/DebianWmIcons/Applications/System/Monitoring"
+AddToMenu "/DebianWmIcons/Applications/System/Monitoring" "Monitoring" Title
++ "&Pstree%menu/programs.xpm%" Exec /usr/bin/X11/xterm -T "Pstree" -e /usr/bin/pstree.x11
++ "&Top%menu/programs.xpm%" Exec /usr/bin/X11/xterm -T "Top" -e /usr/bin/top
++ "&wmCPU%menu/programs.xpm%" Exec    /usr/bin/wmcpu
++ "w&mfire%menu/programs.xpm%" Exec    /usr/bin/wmfire
++ "&Xconsole%menu/programs.xpm%" Exec    xconsole -file /dev/xconsole
++ "X&ev%menu/programs.xpm%" Exec    x-terminal-emulator -e xev
++ "X&load%menu/programs.xpm%" Exec    xload
+
+DestroyMenu "/DebianWmIcons/Applications/System/Package_Management"
+AddToMenu "/DebianWmIcons/Applications/System/Package_Management" "Package Management" Title
++ "&Synaptic Package Manager%menu/programs.xpm%" Exec    x-terminal-emulator -e synaptic-pkexec
+
+DestroyMenu "/DebianWmIcons/Applications/System"
+AddToMenu "/DebianWmIcons/Applications/System" "System" Title
++ "&Administration%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/System/Administration"
++ "&Hardware%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/System/Hardware"
++ "&Monitoring%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/System/Monitoring"
++ "&Package Management%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/System/Package_Management"
+
+DestroyMenu "/DebianWmIcons/Applications/Terminal_Emulators"
+AddToMenu "/DebianWmIcons/Applications/Terminal_Emulators" "Terminal Emulators" Title
++ "&X-Terminal as root (GKsu)%menu/programs.xpm%" Exec    /usr/bin/gksu -u root /usr/bin/x-terminal-emulator
+
+DestroyMenu "/DebianWmIcons/Applications/Text"
+AddToMenu "/DebianWmIcons/Applications/Text" "Text" Title
++ "&Fortune%menu/programs.xpm%" Exec    sh -c 'while /usr/games/fortune | col -x | xmessage -center -buttons OK:1,Another:0 -default OK -file - ; do :; done'
+
+DestroyMenu "/DebianWmIcons/Applications/Viewers"
+AddToMenu "/DebianWmIcons/Applications/Viewers" "Viewers" Title
++ "w&msystemtray%menu/programs.xpm%" Exec    /usr/bin/wmsystemtray
++ "&Wordview%menu/programs.xpm%" Exec    /usr/bin/wordview
++ "&Xditview%menu/programs.xpm%" Exec    xditview
+
+DestroyMenu "/DebianWmIcons/Applications"
+AddToMenu "/DebianWmIcons/Applications" "Applications" Title
++ "&Accessibility%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/Accessibility"
++ "&Editors%menu/editor.xpm%" PopUp "/DebianWmIcons/Applications/Editors"
++ "&Graphics%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/Graphics"
++ "&Network%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/Network"
++ "&Programming%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/Programming"
++ "&Science%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/Science"
++ "S&hells%menu/file.xpm%" PopUp "/DebianWmIcons/Applications/Shells"
++ "S&ystem%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/System"
++ "&Terminal Emulators%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/Terminal_Emulators"
++ "Te&xt%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/Text"
++ "&Viewers%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications/Viewers"
+
+DestroyMenu "/DebianWmIcons/Games/Toys"
+AddToMenu "/DebianWmIcons/Games/Toys" "Toys" Title
++ "&Oclock%menu/unknown.xpm%" Exec    oclock
++ "&Xclock (analog)%menu/unknown.xpm%" Exec    xclock -analog
++ "Xclock (&digital)%menu/unknown.xpm%" Exec    xclock -digital -update 1
++ "X&eyes%menu/unknown.xpm%" Exec    xeyes
++ "X&logo%menu/unknown.xpm%" Exec    xlogo
+
+DestroyMenu "/DebianWmIcons/Games"
+AddToMenu "/DebianWmIcons/Games" "Games" Title
++ "&Toys%menu/folder.xpm%" PopUp "/DebianWmIcons/Games/Toys"
+
+DestroyMenu "/DebianWmIcons/Help"
+AddToMenu "/DebianWmIcons/Help" "Help" Title
++ "&Info%menu/unknown.xpm%" Exec /usr/bin/X11/xterm -T "Info" -e info
++ "&Xman%menu/unknown.xpm%" Exec    xman
+
+DestroyMenu "/DebianWmIcons/Screen/Locking"
+AddToMenu "/DebianWmIcons/Screen/Locking" "Locking" Title
++ "&Lock Screen (XScreenSaver)%menu/unknown.xpm%" Exec    /usr/bin/xscreensaver-command -lock
+
+DestroyMenu "/DebianWmIcons/Screen/Saving"
+AddToMenu "/DebianWmIcons/Screen/Saving" "Saving" Title
++ "&Activate ScreenSaver (Next)%menu/unknown.xpm%" Exec    /usr/bin/xscreensaver-command -next
++ "Activate ScreenSaver (&Previous)%menu/unknown.xpm%" Exec    /usr/bin/xscreensaver-command -prev
++ "A&ctivate ScreenSaver (Random)%menu/unknown.xpm%" Exec    /usr/bin/xscreensaver-command -activate
++ "&Demo Screen Hacks%menu/unknown.xpm%" Exec    /usr/bin/xscreensaver-command -demo
++ "Disable &XScreenSaver%menu/unknown.xpm%" Exec    /usr/bin/xscreensaver-command -exit
++ "&Enable XScreenSaver%menu/unknown.xpm%" Exec    /usr/bin/xscreensaver
++ "&Reinitialize XScreenSaver%menu/unknown.xpm%" Exec    /usr/bin/xscreensaver-command -restart
++ "&ScreenSaver Preferences%menu/unknown.xpm%" Exec    /usr/bin/xscreensaver-command -prefs
+
+DestroyMenu "/DebianWmIcons/Screen"
+AddToMenu "/DebianWmIcons/Screen" "Screen" Title
++ "&Locking%menu/folder.xpm%" PopUp "/DebianWmIcons/Screen/Locking"
++ "&Saving%menu/folder.xpm%" PopUp "/DebianWmIcons/Screen/Saving"
+
+DestroyMenu "/DebianWmIcons"
+AddToMenu "/DebianWmIcons" "Debian" Title
++ "&Applications%menu/programs.xpm%" PopUp "/DebianWmIcons/Applications"
++ "&Games%menu/folder.xpm%" PopUp "/DebianWmIcons/Games"
++ "&Help%menu/folder.xpm%" PopUp "/DebianWmIcons/Help"
++ "&Screen%menu/folder.xpm%" PopUp "/DebianWmIcons/Screen"
+

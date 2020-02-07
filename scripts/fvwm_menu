@@ -1,0 +1,55 @@
+#!/usr/sbin/install-menu
+compat="menu-1"
+!include menu.h
+!include fvwm_menu.h
+
+#
+# You may want to edit (in fvwm_themes.h) the ftFindBestIcon and 
+# ftFindBestSectionIcon as well as the ftFindSystemMiniIcon. 
+#
+
+#function ltitle()=translate(lang(),title())
+function ltitle()=translate($lang,title())
+
+supported
+  wm =  "+ \"" escfirst(ltitle(), $hotkey,"&") \
+    cond_surr(ftFindBestIcon($icon,$package,$section,$command,$title,""),\
+	"%","%") \
+    "\" Restart " $command "\n"
+  FvwmModule =  "+ \"" escfirst(ltitle(),$hotkey,"&") \
+    cond_surr(ftFindBestIcon($icon,$package,$section,$command,$title,""),\
+              "%","%") \
+    "\" Module " $command "\n"
+  FvwmThemes =  "+ \"" escfirst(ltitle(),$hotkey,"&") \
+    cond_surr(ftFindBestIcon($icon,$package,$section,$command,$title,""),\
+              "%","%") \
+    "\" " $command "\n"
+  fvwm2=  "+ \"" escfirst(ltitle(),$hotkey,"&") \
+    cond_surr(ftFindBestIcon($icon,$package,$section,$command,$title,""),\
+	"%","%") \
+    "\" " $command "\n"
+  x11 = "+ \"" escfirst(ltitle(),$hotkey,"&") \
+    cond_surr(ftFindBestIcon($icon,$package,$section,$command,$title,""),\
+              "%","%") \
+    "\" Exec    " $command  "\n"
+  text = "+ \"" escfirst(ltitle(),$hotkey,"&") \
+    cond_surr(ftFindBestIcon($icon,$package,$section,$command,$title,""),\
+              "%","%") \
+    "\""  " Exec /usr/bin/X11/xterm -T \"" ltitle() "\" -e " $command "\n"
+endsupported
+
+startmenu=   "DestroyMenu \"" replacewith($section, " ", "_") "\"" "\n" \
+             "AddToMenu \"" replacewith($section, " ", "_") "\"" \
+	     " \".\: " ltitle() " \:.\" Title" "\n"
+endmenu=     "\n"
+
+#
+submenutitle= "+ \"" escfirst(ltitle() ,$hotkey,"&") \
+	cond_surr(ftFindBestSectionIcon($section,$icon,"menu/"),"%","%") \
+	"\" PopUp \"" replacewith($section, " ", "_") "\"\n"
+
+rootprefix="/usr/share/fvwm/menu-system"
+userprefix="/.fvwm/"
+treewalk="c(m)"
+genmenu="DebianMenu"
+rootsection="DebianMenu"
