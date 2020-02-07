@@ -1,0 +1,7 @@
+Name: dockapp
+Description: Window Maker dockapp support
+URL: https://www.dockapps.net/libdockapp
+Version: 0.7.2
+Requires.private: x11 xext xpm
+Libs: -L/usr/lib -ldockapp
+Cflags: -I/usr/include

@@ -1,0 +1,45 @@
+Wmlife
+------
+
+Wmlife is a dock app running Conway's Game of Life. Life is played on a grid of
+square cells where a cell can be either live or dead. In the rules, you count
+the number of live neighbours for each cell to determinies whether a cell
+lives or dies.
+
++ A dead cell with exactly three live neighbors becomes a live cell (birth).
++ A live cell with two or three live neighbors stays alive (survival).
++ In all other cases, a cell dies or remains dead (overcrowding or loneliness).
+
+Normally Life is implemented on a infinite board but due to size restraints
+wmlife implements the grid as a torus. In a torus the grid wraps at the edges
+from top to bottom and left to right.
+
+Wmlife was based on the Gnome Life applet which has been sadly purged by
+zealous Gnome developers. The algorithim in wmlife is faster but not as
+fast as some out there, however it is only a 56x56 grid. Clicking on the
+dock results in the following.
+
+* Left click to run a program
+* Middle click to randmoise the grid
+* Right click to pause
+* Mouse wheel up or down launches a glider at mouse co-ordinates
+
+This uses the GDK libraries and should be portable to most Unix architectures
+with the Gnome enviroment.
+
+The original GDK dock app came from the ubercool wmfishtime dock application
+written by timecop over at http://www.ne.jp/asahi/linux/timecop/ which has
+swimming fish, an anti-aliased analog clock, and alpha blended bubbles.
+Using this is much faster than the historic wmgeneral source.
+
+Unlike wmfishtime (or wmufo or wmfire), this program is not afflicted by the
+broken window manager problem as since it only draws once or twice per second
+I've let it redraw both source GCs for win and iconwin.
+
+If you discover any bugs then please report them to me at
+<swanson@ukfsn.org> where I'd be happy to answer any questions.
+
+http://www.swanson.ukfsn.org
+
+Wmlife is licensed through the GNU General Public License.
+Read the COPYING file for the complete GNU license.

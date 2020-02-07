@@ -1,0 +1,15 @@
+Changes upto version 1.0.1:
+--------------------------
+
+o Disable GDK client-side rendering
+o Fix regression which was creating a second window on some WM's
+o Add sticky option
+
+Changes upto version 1.0.0:
+--------------------------
+
+o New project
+O Optimised life algorithim from Gnome Life applet
+o Randomise grid every fifteen minutes
+o Run program on left click
+o Create life trails on mouse over

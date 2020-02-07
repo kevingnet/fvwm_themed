@@ -1,0 +1,77 @@
+.\" Man Page for WMLIFE
+.\" groff -man -Tascii wmlife.1
+
+.TH WMLIFE 1 "June 2005"
+
+.SH NAME
+wmlife \- Conway's Game of Life dock app
+
+.SH SYNOPSIS
+.B wmlife
+[-b]
+[-h]
+
+.SH "DESCRIPTION"
+.PP
+.B wmlife
+is a dock app running Conway's Game of Life.
+.PP
+.B o
+Left click to run a program
+.br
+.B o
+Middle click to randomise the grid
+.br
+.B o
+Right click to pause
+.br
+.B o
+Mouse wheel up or down launches a glider at mouse co-ordinates
+.PP
+Wmlife is a dock app running Conway's Game of Life. Life is played on a grid of
+square cells where a cell can be either live or dead. In the rules, you count
+the number of live neighbours for each cell to determine whether a cell
+lives or dies.
+.PP
+.B 1.
+A dead cell with exactly three live neighbours becomes a live cell (birth).
+.PP
+.B 2.
+A live cell with two or three live neighbours stays alive (survival).
+.PP
+.B 3.
+In all other cases, a cell dies or remains dead (overcrowding or loneliness).
+.PP
+Normally Life is implemented on an infinite board but due to size restraints
+wmlife implements the grid as a torus. In a torus the grid wraps at the edges
+from top to bottom and left to right.
+
+.SH OPTIONS
+.TP
+.B -c [...]
+Program to run on a left mouse click
+.TP
+.B -g [{+-}X{+-}Y]
+Set initial window position
+.TP
+.B -h
+Show help
+.TP
+.B -l [...]
+Set life cycle in milliseconds
+.TP
+.B -y
+Set window sticky for window managers which do not support dock apps
+
+.SH "EXAMPLES"
+.B wmlife -g -0-0 -c xterm 
+
+.SH BUGS
+Please report any bugs you may find to:
+.TP
+.B swanson@ukfsn.org
+
+.SH AUTHOR
+Alan Swanson <alan.swanson@ukfsn.org>
+.LP
+http://www.swanson.ukfsn.org
